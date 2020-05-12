@@ -1,0 +1,106 @@
+@import "../../utils/variables.scss";
+.header {
+  z-index: 9999;
+  height: 80px;
+  padding: 1em;
+  /*   position: fixed; */
+  background-image: blue;
+  width: 100vw;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.navigation {
+  display: flex;
+}
+a {
+  font-size: 0.9em;
+  color: magenta;
+  text-decoration: none;
+}
+
+.header-logo {
+  display: flex;
+  justify-content: center;
+  padding: 0 10px;
+  width: 150px;
+}
+
+.header-button {
+  margin-right: 30px;
+  a {
+    display: flex;
+    align-items: center;
+  }
+}
+.header-link {
+  text-align: center;
+  display: none;
+  padding: 0 1em;
+  z-index: 100;
+  list-style: none;
+  display: flex;
+  li {
+    padding: 13px 9px 13px;
+  }
+}
+
+.header-buttons {
+  padding: 0;
+  display: flex;
+  align-self: center;
+  list-style: none;
+  button {
+    margin-right: 0.5em;
+  }
+  li {
+    margin-left: 20px;
+  }
+}
+.hamburger-menu {
+  margin: 0 40px 0 0;
+  font-size: 26px;
+  line-height: 50px;
+  display: none;
+}
+
+.active {
+  font-weight: 700;
+}
+
+@media (max-width: 1070px) {
+  .header-link {
+    overflow: hidden;
+    transition: 0.5s ease-out;
+    z-index: 0;
+    opacity: 0.8;
+    height: 0;
+    position: absolute;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    top: 82px;
+    background: white;
+    a {
+      display: none;
+    }
+  }
+  .open {
+    display: flex;
+    height: 300px;
+    opacity: 1;
+    a {
+      opacity: 1;
+      display: flex;
+    }
+  }
+
+  .hamburger-menu {
+    cursor: pointer;
+    margin-left: auto;
+    display: block;
+    color: blue;
+  }
+}
