@@ -31,7 +31,42 @@
   border-color: $hollywoodCerise;
   color: white;
   cursor: pointer;
+  width: 13em;
+  margin-top: 5em;
 }
+.brand-continue-button {
+  display: block;
+  margin: 0 auto;
+  transition: 0.3s;
+  font-size: 0.9em;
+  padding: 0.8em 1.5em;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0.4rem;
+  font-weight: 700;
+  background-color: $hollywoodCerise;
+  border-color: $hollywoodCerise;
+  color: white;
+  cursor: pointer;
+  width: 12em;
+  /*   margin-top: 5em; */
+}
+
+.brand-back-button {
+  background-color: transparent;
+  font-size: 0.9em;
+  padding: 0.8em 1.5em;
+  border-radius: 0.6rem;
+  background-image: none;
+  box-shadow: none;
+  font-weight: 700;
+  color: $black;
+  border-color: $black;
+  margin-left: 1em;
+  margin-top: 1em;
+  cursor: pointer;
+}
+
 .secondary-button {
   background-color: transparent;
   font-size: 0.9em;
@@ -41,19 +76,22 @@
   box-shadow: none;
   color: $black;
   border-color: $black;
+  margin-left: 1em;
+  margin-top: 1em;
   cursor: pointer;
 }
 
 .feature-button {
   background-color: transparent;
-  font-size: 0.9em;
+  font-size: 0.8em;
   padding: 0.8em 1.5em;
   border-radius: 0.6rem;
-  width: 8rem;
-  height: 7rem;
+  width: 5rem;
+  height: 5rem;
   background-image: none;
   box-shadow: none;
   color: $black;
   border-color: $black;
   cursor: pointer;
+  margin-left: 1em;
 }

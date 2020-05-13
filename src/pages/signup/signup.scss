@@ -17,9 +17,15 @@
 .bathroom-form-container {
     display: flex;
     flex-direction: column;
+    width: 40em;
 }
 .button-container {
     align-self: flex-end;
 }
 .stepper-container {
-    align-self: center;}
+}
+.num-postcode-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: -0.7em;
+}

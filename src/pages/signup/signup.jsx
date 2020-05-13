@@ -71,9 +71,6 @@ const Registration1 = () => {
   return (
     <Form onSubmit={(data) => handleSubmit(data)}>
       <div className="bathroom-form-container">
-        <div className="stepper-container">
-          <MyStepper activeStepId={0} />
-        </div>
         <h2>Bathroom information</h2>
         <div className="bathroom-input container">
           <div /*style={{ display: "flex" }}*/>
@@ -81,14 +78,13 @@ const Registration1 = () => {
               name="name"
               type="text"
               placeholder="e.g. Starbucks Coffee"
+              label="Name of establishment *"
               required
             >
-              Name of establishment *
-        </Form.Input>
+            </Form.Input>
 
-            <Form.Input name="street" type="text" placeholder="Street" align="right" required>
-              Street *
-        </Form.Input>
+            <Form.Input name="street" type="text" placeholder="Street" align="right" label="Street *" required>
+            </Form.Input>
             <Form.Dropdown
               name="city"
               data={city}
@@ -105,28 +101,34 @@ const Registration1 = () => {
               idValue={"firstDropdown"}
               labelValue={"Type of establishment *"}
             ></Form.Dropdown>
-            <Form.Input
+            <span className="num-postcode-container"><Form.Input
               isNumber
               name="number"
               type="text"
               placeholder="Number"
+              inputClass="number-input"
+              label="Number *"
               required
             >
-              Number *
-        </Form.Input>
-            <Form.Input isNumber name="postalcode" type="text" placeholder="ZIP" required>
-              Postal Code *
-        </Form.Input>
+            </Form.Input>
+              <Form.Input
+                isNumber
+                name="postalcode"
+                type="text"
+                placeholder="ZIP"
+                inputClass="postal-input"
+                label="Postal Code *"
+                required>
+              </Form.Input></span>
             <Form.Input
               isNumber
               name="phone"
               type="text"
               placeholder="Contact number"
+              label="Contact number *"
               required
             >
-              Contact number *
-        </Form.Input>
-            <Form.Button2>Submit</Form.Button2>
+            </Form.Input>
           </div>
         </div>
       </div>
@@ -138,8 +140,6 @@ const Registration1 = () => {
 const Registration2 = () => {
   return (
     <>
-
-      <MyStepper activeStepId={1} />
       <h3>Is your bathroom a Happee place?</h3>
       <p>Please select the main features of your bathroom. In order to have a Happee place you must have all these features. </p>
       <Form.Button
@@ -184,9 +184,8 @@ const Registration2 = () => {
 const Registration3 = () => {
   return (
     <>
-      <MyStepper activeStepId={2} />
       <h3>Is your bathroom a Happee place?</h3>
-      <p>Please select the main features of your bathroom. In order to have a Happee place you must have all these features. </p>
+      <p>Please select the other amenities in your bathroom. More is always better! </p>
       <Form.Button
         children={"Female Products"}
         to={""}
@@ -250,12 +249,11 @@ const Registration3 = () => {
 const Registration4 = () => {
   return (
     <>
-      <MyStepper activeStepId={2} />
       <p>Thank you for uploading your bathroom!</p>
       <img src={Success} alt="success" />
       <p>
         The Happee team will contact you as soon as possible to review your
-        bathroom. Meanwhile your place will be shown in the map as unreviewed
+        bathroom. Meanwhile your place will be shown in the map as unreviewed.
       </p>
     </>
   );
@@ -266,6 +264,7 @@ class SignUp extends Component {
     super(props);
     this.state = {
       activeId: 0,
+      stepId: 0,
     };
     this.handlePlusTab = this.handlePlusTab.bind(this);
     this.handleMinusTab = this.handleMinusTab.bind(this);
@@ -274,13 +273,13 @@ class SignUp extends Component {
   }
 
   handlePlusTab() {
-    this.setState({ activeId: this.state.activeId + 1 }, function () {
+    this.setState({ activeId: this.state.activeId + 1, stepId: this.state.stepId + 1 }, function () {
       console.log(this.state.activeId);
     });
   }
 
   handleMinusTab() {
-    this.setState({ activeId: this.state.activeId - 1 }, function () {
+    this.setState({ activeId: this.state.activeId - 1, stepId: this.state.stepId - 1 }, function () {
       console.log(this.state.activeId);
     });
   }
@@ -295,44 +294,49 @@ class SignUp extends Component {
         return <Registration3 />;
       case 3:
         return <Registration4 />;
-      default:
-        return <p>Nothing here</p>;
+      /*default:
+      /*return <p>Nothing here</p>;*/
     }
   }
 
 
   render() {
     return (
-      <div className="container">
-        <div className="title-container">
-          <h1>Share your Happee place</h1>
-          <p>
-            Be part of a Happee community and experience the new culture of clean
-            bathrooms
-        </p>
-          <img src={mainPicture} alt="Main pic of WC" />
+      <>
+        <div className="stepper-container">
+          <MyStepper activeStepId={this.state.stepId} />
         </div>
-        <div className="bathroom-registration-container">
-          <div>{this.getTabContent(this.state.activeId)}</div>
-          <div className="button-container">
-            <Form>
-              <Form.Button to={""} variant="brand" onClickFunc={this.handlePlusTab}>
-                Continue
+        <div className="container">
+          <div className="title-container">
+            <h1>Share your Happee place</h1>
+            <p>
+              Be part of the Happee community and experience the new culture of clean
+              bathrooms
+        </p>
+            <img src={mainPicture} alt="Main pic of WC" />
+          </div>
+          <div className="bathroom-registration-container">
+            <div>{this.getTabContent(this.state.activeId)}</div>
+            <div className="button-container">
+              <Form>
+                <Form.Button to={""} variant="brand-continue" onClickFunc={this.handlePlusTab}>
+                  Continue
           </Form.Button>
-              <Form.Button
-                to={""}
-                variant="secondary"
-                onClickFunc={this.handleMinusTab}
-              >
-                Back
+                <Form.Button
+                  to={""}
+                  variant="brand-back"
+                  onClickFunc={this.handleMinusTab}
+                >
+                  Back
           </Form.Button>
-              <Form.Button to={"/mapScreen"} variant="secondary">
-                to map
+                <Form.Button to={"/mapScreen"} variant="secondary">
+                  TO MAP
           </Form.Button>
-            </Form>
+              </Form>
+            </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }

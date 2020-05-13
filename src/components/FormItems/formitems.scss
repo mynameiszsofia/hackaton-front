@@ -1,8 +1,19 @@
 .formItems-input {
     border-radius: 4px;
     height: 2rem;
+    width: 22em;
+}
+.number-input {
+    border-radius: 4px;
+    height: 2rem;
+    width: 6.5em;
 }
 
+.postal-input {
+    border-radius: 4px;
+    height: 2rem;
+    width: 14em;
+}
 .buttonImg {
     max-width: 2rem;
     max-height: 2rem;
@@ -22,4 +33,7 @@
 .dropdown-input {
     border-radius: 4px;
     height: 2rem;
+}
+.formItems-label {
+    margin-bottom: 0.2em;
 }
