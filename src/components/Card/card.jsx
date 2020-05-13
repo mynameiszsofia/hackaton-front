@@ -15,3 +15,4 @@ Card.Body = ({ children, style }) => <div style={style}>{children}</div>;
 Card.Paragraph = ({ children }) => <p>{children}</p>;
 Card.Link = ({ children, props }) => <a href={props}>{children}</a>;
 Card.Button = ({ children }) => <button variant="large">{children}</button>;
+
