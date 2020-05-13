@@ -1,4 +1,25 @@
 .container {
     display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     margin: 5px;
 }
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.bathroom-registration-container {
+    display: flex;
+    flex-direction: column;
+}
+.bathroom-form-container {
+    display: flex;
+    flex-direction: column;
+}
+.button-container {
+    align-self: flex-end;
+}
+.stepper-container {
+    align-self: center;}

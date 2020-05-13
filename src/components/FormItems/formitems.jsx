@@ -11,8 +11,7 @@ export const Form = ({ children, onSubmit }) => {
             <Formik
                 initialValues={{}}
                 onSubmit={(values, actions) => {
-                    console.log("trests");
-                    // onSubmit(values);
+                    onSubmit(values);
                 }}
             >
                 <FormikForm>{children}</FormikForm>
@@ -27,11 +26,10 @@ Form.Dropdown = function MyDropdown({
     idValue, labelValue, placeholder
 }) {
     return (
-
         <div className="dropdown">
             <label for={selectName} className="formItems-label">{labelValue}
             </label>
-            <select name={selectName} id={idValue}>
+            <select className="dropdown-input" name={selectName} id={idValue}>
                 <option value={placeholder} disabled selected>{placeholder}</option>
                 {data.map((d) => {
                     return (
@@ -46,14 +44,13 @@ Form.Dropdown = function MyDropdown({
 Form.Input = function MyCustomTextField({
     children,
     isNumber,
-    align = "",
     ...props
 }) {
     // TODO: not really clear...
     const [field, meta] = useField(props);
-    // console.log("child", children);
+    console.log("child", field);
     return (
-        <div className={`input-component${align}`}>
+        <div className='input-component'>
             <label className="formItems-label">
             </label>
             {children}
@@ -81,19 +78,23 @@ Form.Button = ({ children, name, to, variant, src, alt, onClickFunc }) => {
         <>
             {src ?
                 ((<Link to={to} >
-                    < button onClick={onClickFunc} className={`${variant ? variant : ""}-button`} type="submit" >
+                    <button onClick={onClickFunc} className={`${variant ? variant : ""} -button`} type="submit" >
 
                         <img className="buttonImg" src={src} alt={alt} />
                         {children}
 
-                    </button > </Link >))
+                    </button> </Link>))
                 :
                 ((<Link to={to} >
-                    <button onClick={onClickFunc} className={`${variant ? variant : ""}-button`} type="submit">
+                    <button onClick={onClickFunc} className={`${variant ? variant : ""} -button`} type="submit">
                         {children}
                     </button></Link>))}
         </>
     );
+};
+
+Form.Button2 = ({ children, name, classN }) => {
+    return <button className={classN} name={name} type="submit">{children}</button>;
 };
 
 Form.Checkbox = function MyCustomCheckbox({
@@ -105,7 +106,7 @@ Form.Checkbox = function MyCustomCheckbox({
     const [field, meta] = useField(props);
     return (
         <div className="checkbox-container">
-            <label className={`checkbox${size}`}>
+            <label className={`checkbox${size} `}>
                 <Field {...field} {...props} type="checkbox" />
                 <span></span>
                 <label className={labelClass}>{children}</label>

@@ -4,111 +4,177 @@ import mainPicture from "../../images/illustrations/about.svg";
 import { Form } from "../../components/FormItems/formitems";
 import MyStepper from "../../components/Stepper/stepper";
 import HandSanitizer from "../../images/icons/handSanitizer.svg";
+import BabyChanger from "../../images/icons/baby-changer.svg";
+import Contactless from "../../images/icons/contactless.svg";
+import Handicap from "../../images/icons/handicap.svg";
 import Success from "../../images/icons/success.svg";
+import HappeePlace from "../../images/icons/happeePlace.svg";
+import FemaleProducts from "../../images/icons/female-products-48.svg";
+import Free from "../../images/icons/free-48.svg";
+import HairDryer from "../../images/icons/hair-dryer-48.svg";
+import HandDryer from "../../images/icons/hand-dryer-48.svg";
+import Mirror from "../../images/icons/mirror-48.svg";
+import PotableWater from "../../images/icons/potable-water-48.svg";
+import ToiletPaper from "../../images/icons/toilet-paper-48.svg";
+import WaterFountain from "../../images/icons/water-fountain-48.svg";
 import "./signup.scss";
+import "../../utils/GlobalStyling.scss";
 
 const dropdown = [
-  { name: "coffee", value: "Coffee" },
+  { name: "cafe", value: "Cafe" },
+  { name: "bar", value: "Bar" },
+  { name: "restaurant", value: "Restaurant" },
+  { name: "shoppingmall", value: "Shopping Mall" },
+  { name: "hospital", value: "Hospital" },
+  { name: "hotel", value: "Hotel" },
+  { name: "school", value: "School" },
+  { name: "officeco", value: "Offices, Coworking" },
+  { name: "shoppingmall", value: "Shopping Mall" },
+  { name: "cinema", value: "Cinema" },
   { name: "gas station", value: "Gas station" },
 ];
 const city = [
-  { name: "Budapest", value: "Budapest" },
-  { name: "Bécs", value: "Bécs" },
+  { name: "Madrid", value: "Madrid" },
+  { name: "Barcelona", value: "Barcelona" },
+  { name: "Sevilla", value: "Sevilla" },
+  { name: "Valencia", value: "Valencia" },
+  { name: "Bilbao", value: "Bilbao" },
+  { name: "Zaragoza", value: "Zaragoza" },
 ];
+
+function handleSubmit(data) {
+  /*    const store = JSON.parse(localStorage.getItem('login')).JWTtoken */
+  // event.preventDefault();
+  console.log('data', JSON.stringify(data))
+  fetch("/api/bathroom", {
+    headers: {
+      /*         "Authorization": `Bearer ${store}`, */
+      "Content-Type": "application/json",
+    },
+    method: "POST",
+    body: JSON.stringify(data),
+  })
+    .then(resp => resp.json())
+    .then(data => {
+      console.log('data1', data, 'datastr', JSON.stringify(data));
+      /*         if (data.type === "error") {
+                setErrors(data.message)
+              } */
+    })
+    .catch(err => {
+      console.log(err)
+    })
+}
+
 
 const Registration1 = () => {
   return (
-    <Form>
-      <MyStepper activeStepId={0} />
-      <h2>Bathroom information</h2>
-      <div style={{ display: "flex" }}>
-        <Form.Input
-          name="stablishment"
-          type="text"
-          placeholder="e.g. Starbucks Coffee"
-          required
-        >
-          Name of stablishment *
+    <Form onSubmit={(data) => handleSubmit(data)}>
+      <div className="bathroom-form-container">
+        <div className="stepper-container">
+          <MyStepper activeStepId={0} />
+        </div>
+        <h2>Bathroom information</h2>
+        <div className="bathroom-input container">
+          <div /*style={{ display: "flex" }}*/>
+            <Form.Input
+              name="name"
+              type="text"
+              placeholder="e.g. Starbucks Coffee"
+              required
+            >
+              Name of establishment *
         </Form.Input>
-        <Form.Dropdown
-          data={dropdown}
-          placeholder="Select type of stablishment"
-          idValue={"firstDropdown"}
-          labelValue={"Type of stablishment *"}
-        ></Form.Dropdown>
 
-        <Form.Input name="street" type="text" placeholder="Street" required>
-          Street *
+            <Form.Input name="street" type="text" placeholder="Street" align="right" required>
+              Street *
         </Form.Input>
-        <Form.Input
-          isNumber
-          name="number"
-          type="text"
-          placeholder="Number"
-          required
-        >
-          Number *
+            <Form.Dropdown
+              name="city"
+              data={city}
+              idValue={"secondDropdown"}
+              placeholder="Select city"
+              labelValue={"City *"}
+            ></Form.Dropdown>
+          </div>
+          <div>
+            <Form.Dropdown
+              name="type"
+              data={dropdown}
+              placeholder="Select type of establishment"
+              idValue={"firstDropdown"}
+              labelValue={"Type of establishment *"}
+            ></Form.Dropdown>
+            <Form.Input
+              isNumber
+              name="number"
+              type="text"
+              placeholder="Number"
+              required
+            >
+              Number *
         </Form.Input>
-        <Form.Input isNumber name="zip" type="text" placeholder="ZIP" required>
-          Postal Code *
+            <Form.Input isNumber name="postalcode" type="text" placeholder="ZIP" required>
+              Postal Code *
         </Form.Input>
-        <Form.Dropdown
-          data={city}
-          idValue={"secondDropdown"}
-          placeholder="Select city"
-          labelValue={"City *"}
-        ></Form.Dropdown>
-        <Form.Input
-          isNumber
-          name="contact-number"
-          type="text"
-          placeholder="Contact number"
-          required
-        >
-          Contact number *
+            <Form.Input
+              isNumber
+              name="phone"
+              type="text"
+              placeholder="Contact number"
+              required
+            >
+              Contact number *
         </Form.Input>
+            <Form.Button2>Submit</Form.Button2>
+          </div>
+        </div>
       </div>
     </Form>
+
   );
 };
 
 const Registration2 = () => {
   return (
     <>
+
       <MyStepper activeStepId={1} />
+      <h3>Is your bathroom a Happee place?</h3>
+      <p>Please select the main features of your bathroom. In order to have a Happee place you must have all these features. </p>
       <Form.Button
         children={"Sanitized"}
         to={""}
-        src={HandSanitizer}
-        alt={"test"}
+        src={HappeePlace}
+        alt={"happee"}
         variant="feature"
       ></Form.Button>
       <Form.Button
         children={"Hand sanitizer"}
         to={""}
         src={HandSanitizer}
-        alt={"test"}
+        alt={"handsanitizer"}
         variant="feature"
       ></Form.Button>
       <Form.Button
-        children={"Hand sanitizer"}
+        children={"Baby Changer"}
         to={""}
-        src={HandSanitizer}
-        alt={"test"}
+        src={BabyChanger}
+        alt={"babychanger"}
         variant="feature"
       ></Form.Button>
       <Form.Button
-        children={"Hand sanitizer"}
+        children={"Contactless"}
         to={""}
-        src={HandSanitizer}
-        alt={"test"}
+        src={Contactless}
+        alt={"contactless"}
         variant="feature"
       ></Form.Button>
       <Form.Button
-        children={"Hand sanitizer"}
+        children={"Handicap"}
         to={""}
-        src={HandSanitizer}
-        alt={"test"}
+        src={Handicap}
+        alt={"handicap"}
         variant="feature"
       ></Form.Button>
     </>
@@ -119,76 +185,65 @@ const Registration3 = () => {
   return (
     <>
       <MyStepper activeStepId={2} />
+      <h3>Is your bathroom a Happee place?</h3>
+      <p>Please select the main features of your bathroom. In order to have a Happee place you must have all these features. </p>
       <Form.Button
-        children={"Hand sanitizer"}
+        children={"Female Products"}
         to={""}
-        src={HandSanitizer}
-        alt={"test"}
+        src={FemaleProducts}
+        alt={"femaleproducts"}
         variant="feature"
       ></Form.Button>
       <Form.Button
-        children={"Hand sanitizer"}
+        children={"Free"}
         to={""}
-        src={HandSanitizer}
-        alt={"test"}
+        src={Free}
+        alt={"free"}
         variant="feature"
       ></Form.Button>
       <Form.Button
-        children={"Hand sanitizer"}
+        children={"Hair Dryer"}
         to={""}
-        src={HandSanitizer}
-        alt={"test"}
+        src={HairDryer}
+        alt={"hairdryer"}
         variant="feature"
       ></Form.Button>
       <Form.Button
-        children={"Hand sanitizer"}
+        children={"Hand Dryer"}
         to={""}
-        src={HandSanitizer}
-        alt={"test"}
+        src={HandDryer}
+        alt={"handdryer"}
         variant="feature"
       ></Form.Button>
       <Form.Button
-        children={"Hand sanitizer"}
+        children={"Mirror"}
         to={""}
-        src={HandSanitizer}
-        alt={"test"}
+        src={Mirror}
+        alt={"mirror"}
         variant="feature"
       ></Form.Button>
       <Form.Button
-        children={"Hand sanitizer"}
+        children={"Potable Water"}
         to={""}
-        src={HandSanitizer}
-        alt={"test"}
+        src={PotableWater}
+        alt={"water"}
         variant="feature"
       ></Form.Button>
       <Form.Button
-        children={"Hand sanitizer"}
+        children={"Toilet Paper"}
         to={""}
-        src={HandSanitizer}
-        alt={"test"}
+        src={ToiletPaper}
+        alt={"toiletpaper"}
         variant="feature"
       ></Form.Button>
       <Form.Button
-        children={"Hand sanitizer"}
+        children={"Water Fountain"}
         to={""}
-        src={HandSanitizer}
-        alt={"test"}
+        src={WaterFountain}
+        alt={"water"}
         variant="feature"
       ></Form.Button>
-      <Form.Button
-        children={"Hand sanitizer"}
-        to={""}
-        src={HandSanitizer}
-        alt={"test"}
-        variant="feature"
-      ></Form.Button>
-      <Form.Button
-        children={"Hand sanitizer"}
-        to={""}
-        src={HandSanitizer}
-        alt={"test"}
-        variant="feature"
-      ></Form.Button>
+
     </>
   );
 };
@@ -215,6 +270,7 @@ class SignUp extends Component {
     this.handlePlusTab = this.handlePlusTab.bind(this);
     this.handleMinusTab = this.handleMinusTab.bind(this);
     this.getTabContent = this.getTabContent.bind(this);
+    /*   this.handleSubmit = this.handleSubmit.bind(this) */
   }
 
   handlePlusTab() {
@@ -244,31 +300,38 @@ class SignUp extends Component {
     }
   }
 
+
   render() {
     return (
-      <div>
-        <h1>Share your Happee place</h1>
-        <p>
-          Be part of a Happee community and experience the new culture of clean
-          bathrooms
+      <div className="container">
+        <div className="title-container">
+          <h1>Share your Happee place</h1>
+          <p>
+            Be part of a Happee community and experience the new culture of clean
+            bathrooms
         </p>
-        <img src={mainPicture} alt="Main pic of WC" />
-        <div>{this.getTabContent(this.state.activeId)}</div>
-        <Form>
-          <Form.Button to={""} variant="brand" onClickFunc={this.handlePlusTab}>
-            Continue
+          <img src={mainPicture} alt="Main pic of WC" />
+        </div>
+        <div className="bathroom-registration-container">
+          <div>{this.getTabContent(this.state.activeId)}</div>
+          <div className="button-container">
+            <Form>
+              <Form.Button to={""} variant="brand" onClickFunc={this.handlePlusTab}>
+                Continue
           </Form.Button>
-          <Form.Button
-            to={""}
-            variant="secondary"
-            onClickFunc={this.handleMinusTab}
-          >
-            Back
+              <Form.Button
+                to={""}
+                variant="secondary"
+                onClickFunc={this.handleMinusTab}
+              >
+                Back
           </Form.Button>
-          <Form.Button to={"/mapScreen"} variant="secondary">
-            to map
+              <Form.Button to={"/mapScreen"} variant="secondary">
+                to map
           </Form.Button>
-        </Form>
+            </Form>
+          </div>
+        </div>
       </div>
     );
   }
