@@ -14,8 +14,6 @@ const styles = makeStyles((theme) => ({
 	},
 }));
 
-
-
 function Header() {
 	const [activePage, setActivePage] = React.useState("Bemutatkozás");
 	const [menuOpen, setMenuOpen] = React.useState(false);
@@ -52,7 +50,7 @@ function Header() {
 				})}
 				<div>Search bar</div>
 				<Avatar alt="avatar icon" src="https://cdn.iconscout.com/icon/free/png-256/avatar-373-456325.png" className={classes.avatar} />
-				<Button to={"/newBathroom"} variant="brand">+Upload bathroom</Button>
+				{/* <Button to={"/newBathroom"} variant="brand">+Upload bathroom</Button> */}
 
 			</div>
 			<label

@@ -29,39 +29,43 @@ export default function Mapcard() {
                             idValue={"firstDropdown"}
                         ></Form.Dropdown>
                     </Form>
-                    <Button
-                        children={"Sanitized"}
+                    <div>
+                        <Button
+                            children={"Sanitized"}
 
-                        variant="secondary"
-                    ></Button>
-                    <Button
-                        children={"Hand sanitizer"}
+                            variant="secondary"
+                        ></Button>
+                        <Button
+                            children={"Hand sanitizer"}
 
-                        variant="secondary"
-                    ></Button>
-                    <Button
-                        children={"Baby Changer"}
+                            variant="secondary"
+                        ></Button>
+                        <Button
+                            children={"Baby Changer"}
 
-                        variant="secondary"
-                    ></Button>
-                    <Button
-                        children={"Contactless"}
+                            variant="secondary"
+                        ></Button>
+                        <Button
+                            children={"Contactless"}
 
-                        variant="secondary"
-                    ></Button>
-                    <Button
-                        children={"Handicap"}
+                            variant="secondary"
+                        ></Button>
+                        <Button
+                            children={"Handicap"}
 
-                        variant="secondary"
-                    ></Button>
-
+                            variant="secondary"
+                        ></Button>
+                    </div>
                 </Card.Body>
                 <Card.Card>
                     <img src={first} alt="budi" width="100"></img>
-                    <p>Cafelito</p>
-                    <img src={Walk} alt="shoes"></img>2min
-                    <p>Calle Sombrerete, 20, Madrid</p>
-
+                    <div className="card-container">
+                        <div style={{ display: "flex", justifyContent: "space-between" }}>
+                            <div>Cafelito</div>
+                            <div><img src={Walk} alt="shoes"></img>2min</div>
+                        </div>
+                        <p>Calle Sombrerete, 20, Madrid</p>
+                    </div>
                 </Card.Card>
             </Card>
         </>

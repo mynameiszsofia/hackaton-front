@@ -11,6 +11,7 @@ export const Form = ({ children, onSubmit }) => {
             <Formik
                 initialValues={{}}
                 onSubmit={(values, actions) => {
+
                     onSubmit(values);
                 }}
             >
@@ -44,31 +45,28 @@ Form.Dropdown = function MyDropdown({
 Form.Input = function MyCustomTextField({
     children,
     isNumber,
+    label,
+    inputClass = "formItems-input",
     ...props
 }) {
     // TODO: not really clear...
     const [field, meta] = useField(props);
-    console.log("child", field);
+    /*  console.log("child", field); */
     return (
         <div className='input-component'>
             <label className="formItems-label">
-            </label>
+                {label}     </label>
             {children}
             {isNumber ? (
                 <NumberFormat
-                    className="formItems-input"
+                    className={inputClass}
                     thousandSeparator={false}
                     {...field}
                     {...props}
                 />
             ) : (
-                    <input className="formItems-input" {...field} {...props} />
+                    <input className={inputClass}{...field} {...props} />
                 )}
-            {meta.touched && meta.error ? (
-                <div className="error">{meta.error}</div>
-            ) : null}
-            <br />
-            <br />
         </div>
     );
 };
@@ -78,7 +76,7 @@ Form.Button = ({ children, name, to, variant, src, alt, onClickFunc }) => {
         <>
             {src ?
                 ((<Link to={to} >
-                    <button onClick={onClickFunc} className={`${variant ? variant : ""} -button`} type="submit" >
+                    <button onClick={onClickFunc} className={`${variant ? variant : ""}-button`} type="submit" >
 
                         <img className="buttonImg" src={src} alt={alt} />
                         {children}
@@ -86,7 +84,7 @@ Form.Button = ({ children, name, to, variant, src, alt, onClickFunc }) => {
                     </button> </Link>))
                 :
                 ((<Link to={to} >
-                    <button onClick={onClickFunc} className={`${variant ? variant : ""} -button`} type="submit">
+                    <button onClick={onClickFunc} className={`${variant ? variant : ""}-button`} type="submit">
                         {children}
                     </button></Link>))}
         </>

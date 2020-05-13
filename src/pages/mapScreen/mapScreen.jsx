@@ -17,8 +17,24 @@ import HappeePlace from "../../images/icons/happeePlace.svg";
 import Handicap from "../../images/icons/handicap.svg";
 import Search from "react-leaflet-search";
 import ReactLeafletSearch from "react-leaflet-search";
-
 import "./mapScreen.scss";
+import Geocode from 'react-geocode';
+import { OpenStreetMapProvider } from 'leaflet-geosearch';
+
+
+
+/* const fetchData = React.useCallback(() => {
+  fetch("/api/bathroom")
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data)
+    });
+});
+React.useEffect(() => {
+  fetchData();
+}, []);
+ */
+
 
 const dropdown = [
   { name: "coffee", value: "Coffee" },
@@ -69,23 +85,36 @@ const MyMarkersList = ({ markers }) => {
   ));
   return <Fragment>{items}</Fragment>;
 };
+let addressNames = [];
+let transformResults = [];
+let urlArray = [];
+const provider = new OpenStreetMapProvider();/* 
+const results = await provider.search({ query: { address } }); */
 
+/* function arrayofurl() {
+  urlArray.map((u) => {
+    fetch(u)
+      .then(response => response.json())
+      .then((data) => {
+        this.setState({ url: data.result });
+        console.log(urlArray)
+      })
+    return console.log("")
+  }, [])
+} */
 
 class mapScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      data1: [],
+      url: [],
       zoom: 13,
       markers: [
         {
           key: "marker1",
           position: [40.439, -3.705],
           content: "My first popup",
-          sanitized: true,
-          diaperchanger: true,
-          contactless: true,
-          handsanitizer: true,
-          handicap: true,
           verified: true,
           happeeStatus: "happeePlace",
           picture: BathroomExample1,
@@ -106,11 +135,6 @@ class mapScreen extends Component {
           key: "marker2",
           position: [40.420, -3.723790],
           content: "My second popup",
-          sanitized: false,
-          diaperchanger: false,
-          contactless: false,
-          handsanitizer: false,
-          handicap: false,
           verified: false,
           happeeStatus: "unknownPlace",
           picture: BathroomExample2,
@@ -132,11 +156,6 @@ class mapScreen extends Component {
           key: "marker3",
           position: [40.410, -3.685],
           content: "My third popup",
-          sanitized: true,
-          diaperchanger: false,
-          contactless: true,
-          handsanitizer: false,
-          handicap: false,
           verified: true,
           happeeStatus: "okPlace",
           picture: BathroomExample3,
@@ -159,7 +178,72 @@ class mapScreen extends Component {
     /*     this.setHappeeStatus = this.setHappeeStatus.bind(this); */
   }
 
+
+  address() {
+    const data1 = this.state.data1;
+    {
+      data1.map((d) => {
+        return (addressNames = d.street + " " + d.number + ", " + d.city),
+          console.log(addressNames)
+      })
+    }
+  }
+
+
+
+  transformAddress = () => {
+    {
+      this.state.data1.map((d) => {
+
+        const url = "https://nominatim.openstreetmap.org/search?format=json&limit=3&q=" + d.city + " " + d.street + " " + d.number;
+        urlArray.push(url)
+        /*     console.log("XML:", XMLHttpRequest.open("GET", url, true)); */
+        return url;
+      }
+      )
+    }
+  }
+
+
+
+
+  /* const url = `https://nominatim.openstreetmap.org/search?format=json&limit=3&q=${d.city}${d.street}${d.number}` */
+  /* 
+const transformedCity = d.city.replace(/\s/g, '%20')
+  const transformedStreet = d.street.replace(/\s/g, '%20')
+  const url = "https://nominatim.openstreetmap.org/search?format=json&limit=1&q=" + transformedCity + '%20' + transformedStreet + '%20' + d.number  */
+
+
+  /* results.map((r) => {
+  return {r.x}
+  })   */
+
+
+
+  componentDidMount() {
+    fetch('api/bathroom')
+      .then(response => response.json())
+      .then((data) => {
+        this.setState({ data1: data.result })
+      })
+    console.log("Data Mount", this.state.data1);
+    this.address();
+    this.transformAddress();
+    /*    arrayofurl(); */
+
+
+  }
+
+
+
+
+
+
   render() {
+    console.log("After render", this.state.data1);
+
+
+
     /* TODO: make function so happeeStatus state isn't hardcoded 
     
     function setHappeeStatus() {
@@ -177,14 +261,23 @@ class mapScreen extends Component {
     } */
 
 
+
     return (
-      <div style={{ display: 'flex' }} classname="MapContainer">
+      <div style={{ display: 'flex', justifyContent: "center" }} classname="MapContainer">
+        {this.address()}
+        {this.transformAddress()}
+        {/*   {arrayofurl()} */}
+        {this.state.data1.map((t) => {
+          return (
+            <p key={t.key}>{t.name}</p>)
+        })}
+
         <Mapcard />
         <Map
           className="map"
           center={[40.420, -3.703]}
           zoom={this.state.zoom}
-          style={{ height: "80vh", width: "60vh" }}
+          style={{ height: "80vh", width: "120vh" }}
         >
           <TileLayer
             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
