@@ -8,7 +8,7 @@ import { MuiThemeProvider } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: "30%",
+    width: "80%",
     color: "#0EB7BF",
 
   },

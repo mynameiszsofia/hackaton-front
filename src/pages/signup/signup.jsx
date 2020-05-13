@@ -138,111 +138,132 @@ const Registration1 = () => {
 };
 
 const Registration2 = () => {
+  const [sanitized, setSanitized] = React.useState(false)
+  const [handsanitizer, setHandsanitizer] = React.useState(false)
+  const [babychanger, setBabychanger] = React.useState(false)
+  const [contactless, setContactless] = React.useState(false)
+  const [handicap, setHandicap] = React.useState(false)
+
   return (
     <>
-      <h3>Is your bathroom a Happee place?</h3>
-      <p>Please select the main features of your bathroom. In order to have a Happee place you must have all these features. </p>
-      <Form.Button
-        children={"Sanitized"}
-        to={""}
-        src={HappeePlace}
-        alt={"happee"}
-        variant="feature"
-      ></Form.Button>
-      <Form.Button
-        children={"Hand sanitizer"}
-        to={""}
-        src={HandSanitizer}
-        alt={"handsanitizer"}
-        variant="feature"
-      ></Form.Button>
-      <Form.Button
-        children={"Baby Changer"}
-        to={""}
-        src={BabyChanger}
-        alt={"babychanger"}
-        variant="feature"
-      ></Form.Button>
-      <Form.Button
-        children={"Contactless"}
-        to={""}
-        src={Contactless}
-        alt={"contactless"}
-        variant="feature"
-      ></Form.Button>
-      <Form.Button
-        children={"Handicap"}
-        to={""}
-        src={Handicap}
-        alt={"handicap"}
-        variant="feature"
-      ></Form.Button>
+      <h2>Is your bathroom a Happee place?</h2>
+      <p>Please select the main features of your bathroom. In order <br /> to have a Happee place you must have all these features. </p>
+      <div className="features-container">
+        <Form.Button
+          to={""}
+          src={HappeePlace}
+          alt={"happee"}
+          variant={sanitized ? "feature-clicked" : "feature"}
+          onClickFunc={() => { setSanitized(!sanitized) }}
+        >Sanitized</Form.Button>
+        <Form.Button
+          to={""}
+          src={HandSanitizer}
+          alt={"handsanitizer"}
+          variant={handsanitizer ? "feature-clicked" : "feature"}
+          onClickFunc={() => { setHandsanitizer(!handsanitizer) }}
+        >Hand sanitizer</Form.Button>
+        <Form.Button
+          to={""}
+          src={BabyChanger}
+          alt={"babychanger"}
+          variant={babychanger ? "feature-clicked" : "feature"}
+          onClickFunc={() => { setBabychanger(!babychanger) }}
+        >Baby Changer</Form.Button>
+        <Form.Button
+          to={""}
+          src={Contactless}
+          alt={"contactless"}
+          variant={contactless ? "feature-clicked" : "feature"}
+          onClickFunc={() => { setContactless(!contactless) }}
+        >Contactless</Form.Button>
+        <Form.Button
+          to={""}
+          src={Handicap}
+          alt={"handicap"}
+          variant={handicap ? "feature-clicked" : "feature"}
+          onClickFunc={() => { setHandicap(!handicap) }}
+        >Handicap</Form.Button>
+      </div>
     </>
   );
 };
 
 const Registration3 = () => {
+  const [mirror, setMirror] = React.useState(false)
+  const [handDryer, setHandDryer] = React.useState(false)
+  const [hairDryer, setHairDryer] = React.useState(false)
+  const [potableWater, setPotableWater] = React.useState(false)
+  const [waterFountain, setWaterFountain] = React.useState(false)
+  const [femaleProducts, setFemaleProducts] = React.useState(false)
+  const [toiletPaper, setToiletPaper] = React.useState(false)
+  const [free, setFree] = React.useState(false)
   return (
     <>
-      <h3>Is your bathroom a Happee place?</h3>
+      <h2>Is your bathroom a Happee place?</h2>
       <p>Please select the other amenities in your bathroom. More is always better! </p>
-      <Form.Button
-        children={"Female Products"}
-        to={""}
-        src={FemaleProducts}
-        alt={"femaleproducts"}
-        variant="feature"
-      ></Form.Button>
-      <Form.Button
-        children={"Free"}
-        to={""}
-        src={Free}
-        alt={"free"}
-        variant="feature"
-      ></Form.Button>
-      <Form.Button
-        children={"Hair Dryer"}
-        to={""}
-        src={HairDryer}
-        alt={"hairdryer"}
-        variant="feature"
-      ></Form.Button>
-      <Form.Button
-        children={"Hand Dryer"}
-        to={""}
-        src={HandDryer}
-        alt={"handdryer"}
-        variant="feature"
-      ></Form.Button>
-      <Form.Button
-        children={"Mirror"}
-        to={""}
-        src={Mirror}
-        alt={"mirror"}
-        variant="feature"
-      ></Form.Button>
-      <Form.Button
-        children={"Potable Water"}
-        to={""}
-        src={PotableWater}
-        alt={"water"}
-        variant="feature"
-      ></Form.Button>
-      <Form.Button
-        children={"Toilet Paper"}
-        to={""}
-        src={ToiletPaper}
-        alt={"toiletpaper"}
-        variant="feature"
-      ></Form.Button>
-      <Form.Button
-        children={"Water Fountain"}
-        to={""}
-        src={WaterFountain}
-        alt={"water"}
-        variant="feature"
-      ></Form.Button>
-
+    {/*   <div className="features-main-container"> */}
+        <div className="features-container">
+          <Form.Button
+            to={""}
+            src={Mirror}
+            alt={"mirror"}
+            variant={mirror ? "feature-clicked" : "feature"}
+            onClickFunc={() => { setMirror(!mirror) }}
+          >Mirror</Form.Button>
+          <Form.Button
+            to={""}
+            src={HandDryer}
+            alt={"handdryer"}
+            variant={handDryer ? "feature-clicked" : "feature"}
+            onClickFunc={() => { setHandDryer(!handDryer) }}
+          >Hand Dryer</Form.Button>
+          <Form.Button
+            to={""}
+            src={HairDryer}
+            alt={"hairdryer"}
+            variant={hairDryer ? "feature-clicked" : "feature"}
+            onClickFunc={() => { setHairDryer(!hairDryer) }}
+          >Hair Dryer</Form.Button>
+          <Form.Button
+            to={""}
+            src={PotableWater}
+            alt={"water"}
+            variant={potableWater ? "feature-clicked" : "feature"}
+            onClickFunc={() => { setPotableWater(!potableWater) }}
+          >Potable Water</Form.Button>
+ {/*        </div>
+        <div className="features-container"> */}
+          <Form.Button
+            to={""}
+            src={WaterFountain}
+            alt={"water"}
+            variant={waterFountain ? "feature-clicked" : "feature"}
+            onClickFunc={() => { setWaterFountain(!waterFountain) }}
+          >Water Fountain</Form.Button>
+          <Form.Button
+            to={""}
+            src={FemaleProducts}
+            alt={"femaleproducts"}
+            variant={femaleProducts ? "feature-clicked" : "feature"}
+            onClickFunc={() => { setFemaleProducts(!femaleProducts) }}
+          >Female Products</Form.Button>
+          <Form.Button
+            to={""}
+            src={ToiletPaper}
+            alt={"toiletpaper"}
+            variant={toiletPaper ? "feature-clicked" : "feature"}
+            onClickFunc={() => { setToiletPaper(!toiletPaper) }}
+          >Toilet Paper</Form.Button>
+          <Form.Button
+            to={""}
+            src={Free}
+            alt={"free"}
+            variant={free ? "feature-clicked" : "feature"}
+            onClickFunc={() => { setFree(!free) }}
+          >Free</Form.Button>
+        </div>
+   {/*    </div> */}
     </>
   );
 };
@@ -263,7 +284,7 @@ class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeId: 0,
+      activeId: 2,
       stepId: 0,
     };
     this.handlePlusTab = this.handlePlusTab.bind(this);
@@ -304,18 +325,19 @@ class SignUp extends Component {
     return (
       <>
         <div className="stepper-container">
-          <MyStepper activeStepId={this.state.stepId} />
+
         </div>
         <div className="container">
           <div className="title-container">
-            <h1>Share your Happee place</h1>
+            <h1>Share your <br />  Happee place</h1>
             <p>
-              Be part of the Happee community and experience the new culture of clean
+              Be part of the Happee community and experience the <br /> new culture of clean
               bathrooms
         </p>
             <img src={mainPicture} alt="Main pic of WC" />
           </div>
           <div className="bathroom-registration-container">
+            <MyStepper activeStepId={this.state.stepId} />
             <div>{this.getTabContent(this.state.activeId)}</div>
             <div className="button-container">
               <Form>
@@ -328,9 +350,6 @@ class SignUp extends Component {
                   onClickFunc={this.handleMinusTab}
                 >
                   Back
-          </Form.Button>
-                <Form.Button to={"/mapScreen"} variant="secondary">
-                  TO MAP
           </Form.Button>
               </Form>
             </div>

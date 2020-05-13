@@ -1,11 +1,21 @@
 @import "./variables.scss";
 
 h1 {
-    font-weight: 500;
-    margin: 0;
+    font-size: 2.5em;
+    font-weight: 450;
+    margin: 0.2em;
 }
 
 h2 {
     margin: 0.5em;
     font-weight: 400;
+}
+
+p {
+    margin: 0.5em;
+    line-height: 1.5em;
+}
+
+body {
+    font-family: 'Comfortaa', cursive;
 }

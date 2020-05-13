@@ -31,9 +31,9 @@ function Header() {
 				<img src={logo} className="header-logo" alt="logo" />
 			</Link>
 			<div className={menuOpen ? "open header-link" : "header-link"}>
-				{links.map((link) => {
+				{links.map((link, i) => {
 					return (
-						<Link to={`/${link}`}>
+						<Link key={i} to={`/${link}`}>
 							<li
 								className={
 									activePage === link
@@ -41,6 +41,7 @@ function Header() {
 										: "header-link-item"
 								}
 								onClick={() => setActivePage(link)}
+								key={i}
 							>
 
 								{link}
