@@ -7,11 +7,14 @@ import unknownPlace from "../../images/icons/unknown.svg";
 import { Card } from "../../components/Card/card";
 import { Form } from "../../components/FormItems/formitems";
 import HandSanitizer from "../../images/icons/handSanitizer.svg";
+import mapPopup from "../../components/MapPopup/mapPopup";
 
 const dropdown = [
   { name: "coffee", value: "Coffee" },
   { name: "gas station", value: "Gas station" },
 ];
+
+/* TODO: make icons more dry */
 
 var happeeIcon = L.icon({
   iconUrl: happeePlace,
@@ -20,8 +23,31 @@ var happeeIcon = L.icon({
   popupAnchor: [0, -41],
 });
 
-const MyPopupMarker = ({ content, position }) => (
-  <Marker position={position} icon={happeeIcon}>
+var okIcon = L.icon({
+  iconUrl: okPlace,
+  iconSize: [50, 80],
+  iconAnchor: [12.5, 41],
+  popupAnchor: [0, -41],
+});
+
+var unknownIcon = L.icon({
+  iconUrl: unknownPlace,
+  iconSize: [50, 80],
+  iconAnchor: [12.5, 41],
+  popupAnchor: [0, -41],
+});
+
+const MyPopupMarker = ({ content, position, happeeStatus }) => (
+  <Marker
+    position={position}
+    icon={
+      happeeStatus === "happeePlace"
+        ? happeeIcon
+        : happeeStatus === "okPlace"
+        ? okIcon
+        : unknownIcon
+    }
+  >
     <Popup>{content}</Popup>
   </Marker>
 );
@@ -51,7 +77,7 @@ class mapScreen extends Component {
           handsanitizer: true,
           handicap: true,
           verified: true,
-          /*  happee: sanitized === true ? "happeePlace" : "okPlace", */
+          happeeStatus: "happeePlace",
         },
         {
           key: "marker2",
@@ -63,8 +89,7 @@ class mapScreen extends Component {
           handsanitizer: false,
           handicap: false,
           verified: false,
-          happee: this.happeeStatus(),
-          /*this.state.markers.sanitized === true ? "happeePlace" : "okPlace", */
+          happeeStatus: "unknownPlace",
         },
         {
           key: "marker3",
@@ -76,30 +101,29 @@ class mapScreen extends Component {
           handsanitizer: false,
           handicap: false,
           verified: true,
-          /*    happee:
-          this.state.markers.sanitized === true ? "happeePlace" : "okPlace", */
+          happeeStatus: "okPlace",
         },
       ],
     };
-    this.happeeStatus = this.happeeStatus.bind(this);
+    /*     this.setHappeeStatus = this.setHappeeStatus.bind(this); */
   }
 
   render() {
-    function happeeStatus() {
-      let status = "unknown";
-      this.state.markers.map((marker) =>
-        marker.verified
+    /* TODO: make function so happeeStatus state isn't hardcoded 
+    
+    function setHappeeStatus() {
+      this.state.markers.map((marker) => {
+        return marker.verified === true
           ? marker.sanitized === true &&
             marker.diaperchanger === true &&
-            marker.contactless === true &&
+            marker.contacless === true &&
             marker.handsanitizer === true &&
             marker.handicap === true
-            ? (status = "happeePlace")
-            : (status = "okPlace")
-          : (status = "unknown")
-      );
-      return status;
-    }
+            ? this.setState((marker.happeeStatus = "happeePlace"))
+            : this.setState((marker.happeeStatus = "okPlace"))
+          : this.setState((marker.happeeStatus = "unknownPlace"));
+      });
+    } */
 
     return (
       <div>
