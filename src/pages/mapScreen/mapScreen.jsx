@@ -7,8 +7,18 @@ import unknownPlace from "../../images/icons/unknown.svg";
 import { Form } from "../../components/FormItems/formitems";
 import HandSanitizer from "../../images/icons/handSanitizer.svg";
 import MapPopup from "../../components/MapPopup/mapPopup";
-import BathroomExample1 from "../../images/photography/eweq.png";
+import BathroomExample1 from "../../images/photography/1.jpg";
+import BathroomExample2 from "../../images/photography/3.jpg";
+import BathroomExample3 from "../../images/photography/2.jpg";
 import Mapcard from "../../components/mapcard/mapcard";
+import BabyChanger from "../../images/icons/baby-changer.svg";
+import Contactless from "../../images/icons/contactless.svg";
+import HappeePlace from "../../images/icons/happeePlace.svg";
+import Handicap from "../../images/icons/handicap.svg";
+import Search from "react-leaflet-search";
+import ReactLeafletSearch from "react-leaflet-search";
+
+import "./mapScreen.scss";
 
 const dropdown = [
   { name: "coffee", value: "Coffee" },
@@ -49,7 +59,7 @@ const MyPopupMarker = ({ position, happeeStatus, picture, name, walkingTime, add
           : unknownIcon
     }
   >
-    <Popup ><MapPopup srcPicture={"https://www.commercialinteriordesign.com/public/styles/full_img_crop/public/images/2019/08/07/01_Titisee.jpg?itok=_lp7j2Md"} providerName={name} walkingTime={walkingTime} providerAddress={address} openingTime={openingTime} closingTime={closingTime} /></Popup>
+    <Popup ><MapPopup srcPicture={picture} providerName={name} walkingTime={walkingTime} providerAddress={address} openingTime={openingTime} closingTime={closingTime} logos={details} /></Popup>
   </Marker>
 );
 
@@ -65,13 +75,11 @@ class mapScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      lat: 51.505,
-      lng: -0.09,
       zoom: 13,
       markers: [
         {
           key: "marker1",
-          position: [51.5, -0.1],
+          position: [40.439, -3.705],
           content: "My first popup",
           sanitized: true,
           diaperchanger: true,
@@ -96,7 +104,7 @@ class mapScreen extends Component {
         },
         {
           key: "marker2",
-          position: [51.51, -0.1],
+          position: [40.420, -3.723790],
           content: "My second popup",
           sanitized: false,
           diaperchanger: false,
@@ -105,7 +113,7 @@ class mapScreen extends Component {
           handicap: false,
           verified: false,
           happeeStatus: "unknownPlace",
-          picture: BathroomExample1,
+          picture: BathroomExample2,
           name: "Betérő",
           walkingTime: 4,
           address: "Csillag köz, 18, Hörcsögröcsöge",
@@ -122,7 +130,7 @@ class mapScreen extends Component {
         },
         {
           key: "marker3",
-          position: [51.49, -0.05],
+          position: [40.410, -3.685],
           content: "My third popup",
           sanitized: true,
           diaperchanger: false,
@@ -131,7 +139,7 @@ class mapScreen extends Component {
           handicap: false,
           verified: true,
           happeeStatus: "okPlace",
-          picture: BathroomExample1,
+          picture: BathroomExample3,
           name: "Sarok",
           walkingTime: 20,
           address: "Rutyutu köz, 666, Karakószörcsög",
@@ -168,11 +176,13 @@ class mapScreen extends Component {
       });
     } */
 
+
     return (
-      <div>
+      <div style={{ display: 'flex' }} classname="MapContainer">
+        <Mapcard />
         <Map
           className="map"
-          center={[51.505, -0.09]}
+          center={[40.420, -3.703]}
           zoom={this.state.zoom}
           style={{ height: "80vh", width: "60vh" }}
         >
@@ -180,9 +190,21 @@ class mapScreen extends Component {
             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
+          <ReactLeafletSearch
+            position="topleft"
+            inputPlaceholder="The default text in the search bar"
+            search={[]} // Setting this to [lat, lng] gives initial search input to the component and map flies to that coordinates, its like search from props not from user
+            zoom={16} // Default value is 10
+            showMarker={true}
+            showPopup={false}
+            openSearchOnLoad={false} // By default there's a search icon which opens the input when clicked. Setting this to true opens the search by default.
+            closeResultsOnClick={false} // By default, the search results remain when you click on one, and the map flies to the location of the result. But you might want to save space on your map by closing the results when one is clicked. The results are shown again (without another search) when focus is returned to the search input.
+            providerOptions={{ searchBounds: [] }} // The BingMap and OpenStreetMap providers both accept bounding coordinates in [se,nw] format. Note that in the case of OpenStreetMap, this only weights the results and doesn't exclude things out of bounds.
+            customProvider={undefined | { search: (searchString) => { } }} // see examples to usage details until docs are ready
+          />
           <MyMarkersList markers={this.state.markers} />
         </Map>
-        <Mapcard />
+
       </div>
     );
   }

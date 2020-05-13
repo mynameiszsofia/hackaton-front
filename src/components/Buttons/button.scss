@@ -1,5 +1,5 @@
 @import "../../utils/variables.scss";
-.button-button {
+.button {
   display: block;
   margin: 0 auto;
   transition: 0.3s;
@@ -42,6 +42,9 @@
   color: $black;
   border-color: $black;
   cursor: pointer;
+}
+.selected {
+  background-color: $cerulean;
 }
 
 .feature-button {
