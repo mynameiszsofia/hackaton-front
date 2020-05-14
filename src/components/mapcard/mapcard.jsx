@@ -47,6 +47,7 @@ export default function Mapcard() {
               variant="map"
               onClick={() => setSanitized(!sanitized)}
             ></Button>
+            {console.log(sanitized)}
             <Button
               children={"Hand sanitizer"}
               variant="map"
