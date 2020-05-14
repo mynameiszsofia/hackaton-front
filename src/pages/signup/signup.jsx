@@ -170,7 +170,6 @@ const Registration2 = () => {
 
 
   return (
-<<<<<<< HEAD
     <>
       <h2>Is your bathroom a Happee place?</h2>
       <p>Please select the main features of your bathroom. In order <br /> to have a Happee place you must have all these features. </p>
@@ -213,47 +212,6 @@ const Registration2 = () => {
       </div>
     <button type="button" onClick={handleSubmit(data)}>Submit</button>
     </>
-=======
-    <Form>
-      <h3>Is your bathroom a Happee place?</h3>
-      <p>Please select the main features of your bathroom. In order to have a Happee place you must have all these features. </p>
-      <Form.Button
-        children={"Sanitized"}
-        to={""}
-        src={HappeePlace}
-        alt={"happee"}
-        variant="feature"
-      ></Form.Button>
-      <Form.Button
-        children={"Hand sanitizer"}
-        to={""}
-        src={HandSanitizer}
-        alt={"handsanitizer"}
-        variant="feature"
-      ></Form.Button>
-      <Form.Button
-        children={"Baby Changer"}
-        to={""}
-        src={BabyChanger}
-        alt={"babychanger"}
-        variant="feature"
-      ></Form.Button>
-      <Form.Button
-        children={"Contactless"}
-        to={""}
-        src={Contactless}
-        alt={"contactless"}
-        variant="feature"
-      ></Form.Button>
-      <Form.Button
-        children={"Handicap"}
-        to={""}
-        src={Handicap}
-        alt={"handicap"}
-        variant="feature"
-      ></Form.Button>
-    </Form>
->>>>>>> origin/front
   );
 };
 
@@ -269,7 +227,6 @@ const Registration3 = () => {
 
   
   return (
-<<<<<<< HEAD
     <>
       <h2>Is your bathroom a Happee place?</h2>
       <p>Please select the other amenities in your bathroom. More is always better! </p>
@@ -336,69 +293,6 @@ const Registration3 = () => {
         </div>
    {/*    </div> */}
     </>
-=======
-    <Form>
-      <h3>Is your bathroom a Happee place?</h3>
-      <p>Please select the other amenities in your bathroom. More is always better! </p>
-      <Form.Button
-        children={"Female Products"}
-        to={""}
-        src={FemaleProducts}
-        alt={"femaleproducts"}
-        variant="feature"
-      ></Form.Button>
-      <Form.Button
-        children={"Free"}
-        to={""}
-        src={Free}
-        alt={"free"}
-        variant="feature"
-      ></Form.Button>
-      <Form.Button
-        children={"Hair Dryer"}
-        to={""}
-        src={HairDryer}
-        alt={"hairdryer"}
-        variant="feature"
-      ></Form.Button>
-      <Form.Button
-        children={"Hand Dryer"}
-        to={""}
-        src={HandDryer}
-        alt={"handdryer"}
-        variant="feature"
-      ></Form.Button>
-      <Form.Button
-        children={"Mirror"}
-        to={""}
-        src={Mirror}
-        alt={"mirror"}
-        variant="feature"
-      ></Form.Button>
-      <Form.Button
-        children={"Potable Water"}
-        to={""}
-        src={PotableWater}
-        alt={"water"}
-        variant="feature"
-      ></Form.Button>
-      <Form.Button
-        children={"Toilet Paper"}
-        to={""}
-        src={ToiletPaper}
-        alt={"toiletpaper"}
-        variant="feature"
-      ></Form.Button>
-      <Form.Button
-        children={"Water Fountain"}
-        to={""}
-        src={WaterFountain}
-        alt={"water"}
-        variant="feature"
-      ></Form.Button>
-
-    </Form>
->>>>>>> origin/front
   );
 };
 const Registration4 = () => {
