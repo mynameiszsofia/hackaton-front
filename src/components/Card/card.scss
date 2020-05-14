@@ -1,11 +1,23 @@
 @import "../../utils/variables.scss";
 
 .card {
-    width: 26%;
+  width: "400px";
 }
+
 .cardx {
-    display: flex;
-    border: 1px solid black;
-    margin: 0.5em;
-    padding: 0.3em;
+  display: flex;
+  border-left: 3px solid $cerulean;
+  margin: 0.5em;
+  padding: 0.3em;
+  box-shadow: 3px 10px 17px -12px rgba(0, 0, 0, 0.75);
+  border-radius: 0.3rem;
+}
+
+.cardx:hover {
+  box-shadow: 3px 10px 17px -8px rgba(0, 0, 0, 0.75);
+}
+
+hr {
+  margin: 0;
+  width: 99%;
 }

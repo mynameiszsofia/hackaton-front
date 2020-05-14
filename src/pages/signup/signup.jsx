@@ -17,7 +17,7 @@ import Mirror from "../../images/icons/mirror-48.svg";
 import PotableWater from "../../images/icons/potable-water-48.svg";
 import ToiletPaper from "../../images/icons/toilet-paper-48.svg";
 import WaterFountain from "../../images/icons/water-fountain-48.svg";
-import bathroomdata from "../../bathroomdata.json"
+import bathroomdata from "../../bathroomdata.json";
 import "./signup.scss";
 import "../../utils/GlobalStyling.scss";
 
@@ -44,14 +44,14 @@ const city = [
 ];
 const Registration1 = () => {
   function handleSubmit(data) {
-    bathroomdata.name = data.name
-    bathroomdata.type = data.type
-    bathroomdata.street = data.street
-    bathroomdata.city = data.city
-    bathroomdata.number = data.number
-    bathroomdata.postalcode = data.postalcode
-    bathroomdata.phone = data.phone
-    console.log(bathroomdata, 'bathdata', data, 'data')
+    bathroomdata.name = data.name;
+    bathroomdata.type = data.type;
+    bathroomdata.street = data.street;
+    bathroomdata.city = data.city;
+    bathroomdata.number = data.number;
+    bathroomdata.postalcode = data.postalcode;
+    bathroomdata.phone = data.phone;
+    console.log(bathroomdata, "bathdata", data, "data");
   }
 
   return (
@@ -66,11 +66,16 @@ const Registration1 = () => {
               placeholder="e.g. Starbucks Coffee"
               label="Name of establishment *"
               required
-            >
-            </Form.Input>
+            ></Form.Input>
 
-            <Form.Input name="street" type="text" placeholder="Street" align="right" label="Street *" required>
-            </Form.Input>
+            <Form.Input
+              name="street"
+              type="text"
+              placeholder="Street"
+              align="right"
+              label="Street *"
+              required
+            ></Form.Input>
             <Form.Dropdown
               name="city"
               data={city}
@@ -87,16 +92,16 @@ const Registration1 = () => {
               idValue={"firstDropdown"}
               labelValue={"Type of establishment *"}
             ></Form.Dropdown>
-            <span className="num-postcode-container"><Form.Input
-              isNumber
-              name="number"
-              type="text"
-              placeholder="Number"
-              inputClass="number-input"
-              label="Number *"
-              required
-            >
-            </Form.Input>
+            <span className="num-postcode-container">
+              <Form.Input
+                isNumber
+                name="number"
+                type="text"
+                placeholder="Number"
+                inputClass="number-input"
+                label="Number *"
+                required
+              ></Form.Input>
               <Form.Input
                 isNumber
                 name="postalcode"
@@ -104,8 +109,9 @@ const Registration1 = () => {
                 placeholder="ZIP"
                 inputClass="postal-input"
                 label="Postal Code *"
-                required>
-              </Form.Input></span>
+                required
+              ></Form.Input>
+            </span>
             <Form.Input
               isNumber
               name="phone"
@@ -113,14 +119,12 @@ const Registration1 = () => {
               placeholder="Contact number"
               label="Contact number *"
               required
-            >
-            </Form.Input>
+            ></Form.Input>
           </div>
         </div>
       </div>
       <button className="submit-button" type="submit">Submit</button>
     </Form>
-
   );
 };
 
@@ -134,19 +138,21 @@ const Registration2 = () => {
   console.log("data", data)
 
   function handleSubmit(data) {
-    bathroomdata.sanitized = data.sanitized
-    bathroomdata.handsanitizer = data.handsanitizer
-    bathroomdata.diaperchanger = data.diaperchanger
-    bathroomdata.contactless = data.contactless
-    bathroomdata.handicap = data.handicap
-    console.log(bathroomdata, 'bathdata', data, 'data')
+    bathroomdata.sanitized = data.sanitized;
+    bathroomdata.handsanitizer = data.handsanitizer;
+    bathroomdata.diaperchanger = data.diaperchanger;
+    bathroomdata.contactless = data.contactless;
+    bathroomdata.handicap = data.handicap;
+    console.log(bathroomdata, "bathdata", data, "data");
   }
-
 
   return (
     <>
       <h2>Is your bathroom a Happee place?</h2>
-      <p>Please select the main features of your bathroom. In order <br /> to have a Happee place you must have all these features. </p>
+      <p>
+        Please select the main features of your bathroom. In order <br /> to
+        have a Happee place you must have all these features.{" "}
+      </p>
       <div className="features-container">
         {handleSubmit(data)}
         <Form.Button
@@ -154,36 +160,56 @@ const Registration2 = () => {
           src={HappeePlace}
           alt={"happee"}
           variant={sanitized_ ? "feature-clicked" : "feature"}
-          onClickFunc={() => { setSanitized(!sanitized_) }}
-        >Sanitized</Form.Button>
+          onClickFunc={() => {
+            setSanitized(!sanitized_);
+          }}
+        >
+          Sanitized
+        </Form.Button>
         <Form.Button
           to={""}
           src={HandSanitizer}
           alt={"handsanitizer"}
           variant={handsanitizer_ ? "feature-clicked" : "feature"}
-          onClickFunc={() => { setHandsanitizer(!handsanitizer_) }}
-        >Hand sanitizer</Form.Button>
+          onClickFunc={() => {
+            setHandsanitizer(!handsanitizer_);
+          }}
+        >
+          Hand sanitizer
+        </Form.Button>
         <Form.Button
           to={""}
           src={BabyChanger}
           alt={"babychanger"}
           variant={diaperchanger_ ? "feature-clicked" : "feature"}
-          onClickFunc={() => { setDiaperchanger(!diaperchanger_) }}
-        >Baby Changer</Form.Button>
+          onClickFunc={() => {
+            setDiaperchanger(!diaperchanger_);
+          }}
+        >
+          Baby Changer
+        </Form.Button>
         <Form.Button
           to={""}
           src={Contactless}
           alt={"contactless"}
           variant={contactless_ ? "feature-clicked" : "feature"}
-          onClickFunc={() => { setContactless(!contactless_) }}
-        >Contactless</Form.Button>
+          onClickFunc={() => {
+            setContactless(!contactless_);
+          }}
+        >
+          Contactless
+        </Form.Button>
         <Form.Button
           to={""}
           src={Handicap}
           alt={"handicap"}
           variant={handicap_ ? "feature-clicked" : "feature"}
-          onClickFunc={() => { setHandicap(!handicap_) }}
-        >Handicap</Form.Button>
+          onClickFunc={() => {
+            setHandicap(!handicap_);
+          }}
+        >
+          Handicap
+        </Form.Button>
       </div>
     </>
   );
@@ -333,15 +359,25 @@ class SignUp extends Component {
   }
 
   handlePlusTab() {
-    this.setState({ activeId: this.state.activeId + 1, stepId: this.state.stepId + 1 }, function () {
-      console.log(this.state.activeId);
-    });
+    this.setState(
+      { activeId: this.state.activeId + 1, stepId: this.state.stepId + 1 },
+      function () {
+        console.log(this.state.activeId);
+      }
+    );
   }
 
   handleMinusTab() {
-    this.setState({ activeId: this.state.activeId - 1, stepId: this.state.stepId - 1 }, function () {
-      console.log(this.state.activeId);
-    });
+    this.setState(
+      { activeId: this.state.activeId - 1, stepId: this.state.stepId - 1 },
+      function () {
+        console.log(this.state.activeId);
+      }
+    );
+  }
+
+  setToBack() {
+    this.setState({ activeId: 0 });
   }
 
   getTabContent() {
@@ -357,20 +393,19 @@ class SignUp extends Component {
     }
   }
 
-
   render() {
     return (
       <>
-        <div className="stepper-container">
-
-        </div>
+        <div className="stepper-container"></div>
         <div className="container">
           <div className="title-container">
-            <h1>Share your <br />  Happee place</h1>
+            <h1>
+              Share your <br /> Happee place
+            </h1>
             <p>
-              Be part of the Happee community and experience the <br /> new culture of clean
-              bathrooms
-        </p>
+              Be part of the Happee community and experience the <br /> new
+              culture of clean bathrooms
+            </p>
             <img src={mainPicture} alt="Main pic of WC" />
           </div>
           <div className="bathroom-registration-container">

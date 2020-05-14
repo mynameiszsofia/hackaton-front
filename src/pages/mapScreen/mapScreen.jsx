@@ -26,6 +26,8 @@ import Geocode from "react-geocode";
 import { OpenStreetMapProvider } from "leaflet-geosearch";
 import dataFile from "./data.json";
 
+import "../../utils/GlobalStyling.scss";
+
 /* const fetchData = React.useCallback(() => {
   fetch("/api/bathroom")
     .then((res) => res.json())
@@ -120,7 +122,7 @@ let addressNames = [];
 let transformResults = [];
 let urlArray = [];
 const provider = new OpenStreetMapProvider(); /* 
-const results = await provider.search({ query: { address } }); */
+
 
 /* function arrayofurl() {
   urlArray.map((u) => {
@@ -157,6 +159,14 @@ class mapScreen extends Component {
       });
     }
   }
+  async search(params) {
+    console.log("params", params);
+    const results = await provider.search({
+      query: params,
+    });
+    console.log("result", results);
+    return await results;
+  }
 
   transformAddress = () => {
     {
@@ -188,9 +198,21 @@ const transformedCity = d.city.replace(/\s/g, '%20')
   componentDidMount() {
     fetch("api/bathroom")
       .then((response) => response.json())
-      .then((data) => {
-        this.setState({ data1: data.result });
+      .then(async (data) => {
+        // data.result.forEach(
+        //   async (place) =>
+        //     await console.log(
+        //       "test2",
+        //       await this.search(this.address(place.address))
+        //     )
+        // );
+        const array2 = await data.result.map(
+          async (place) => await this.search(await this.address(place.address))
+        );
+        await console.log("result2", await array2);
+        // this.setState({ data1: data.result });
       })
+      .then((resp) => console.log("test", resp))
       .catch(function () {
         console.log("error");
       });

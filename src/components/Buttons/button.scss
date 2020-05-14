@@ -80,6 +80,19 @@
   margin-top: 0.5em;
   cursor: pointer;
 }
+.map-button {
+  background-color: transparent;
+  font-size: 0.9em;
+  padding: 0.8em 1.5em;
+  border-radius: 0.6rem;
+  background-image: none;
+  box-shadow: none;
+  color: $black;
+  border-color: $black;
+  margin-left: 0.5em;
+  margin-top: 0.5em;
+  cursor: pointer;
+}
 .selected {
   background-color: $cerulean;
 }
@@ -94,7 +107,7 @@
   background-image: none;
   box-shadow: none;
   color: $black;
-/*   border-color: $black; */
+  /*   border-color: $black; */
   cursor: pointer;
   margin-left: 1em;
 }
