@@ -149,6 +149,7 @@ const Registration1 = () => {
         </div>
       </div>
       <button type="submit">Submit</button>
+      <Form.Button to={"/mapScreen"}>Map</Form.Button>
     </Form>
   );
 };
