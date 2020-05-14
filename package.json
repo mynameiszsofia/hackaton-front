@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "proxy": "http://localhost:5000",
   "homepage": ".",
-"private": true,
+  "private": true,
   "dependencies": {
     "@material-ui/core": "^4.9.14",
     "@material-ui/icons": "^4.9.1",

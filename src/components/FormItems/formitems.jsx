@@ -1,5 +1,5 @@
 import React from "react";
-import { Formik, Form as FormikForm, useField, Field   } from "formik";
+import { Formik, Form as FormikForm, useField, Field } from "formik";
 import NumberFormat from "react-number-format";
 import { Link } from "react-router-dom";
 import "./formitems.scss";
@@ -35,7 +35,7 @@ Form.Dropdown = function MyDropdown({
             <label for={selectName} className="formItems-label">{labelValue}
             </label>
             <Field name="colors" as="select" className="dropdown-input" {...field}>
-            {data.map((d) => {
+                {data.map((d) => {
                     return (
                         <option value={d.value} >{d.value}</option>
                     )
@@ -50,10 +50,12 @@ Form.Input = function MyCustomTextField({
     isNumber,
     label,
     inputClass = "formItems-input",
-    ...props
+    name, 
+    props
 }) {
     // TODO: not really clear...
-    const [field, meta] = useField(props);
+    const [field, meta] = useField(name);
+    console.log(field)
     return (
         <div className='input-component'>
             <label className="formItems-label">
@@ -64,10 +66,16 @@ Form.Input = function MyCustomTextField({
                     className={inputClass}
                     thousandSeparator={false}
                     {...field}
+                    name={name}
                     {...props}
+                    type="text"
+
                 />
             ) : (
-                    <input className={inputClass}{...field} {...props} />
+                    <input className={inputClass}{...field}
+                    {...props}
+    
+                    type="text" />
                 )}
         </div>
     );
@@ -97,6 +105,15 @@ Form.Button2 = ({ children, name, classN }) => {
     return <button className={classN} name={name} type="submit">{children}</button>;
 };
 
+Form.Button3 = function CustomInput({ children, name, props, value }) {
+    const [field, meta] = useField(name);
+    console.log("test",field);
+    return <Field {...field} type="checkbox" value={value}  {...props}>
+        {children}
+    </Field>;
+};
+
+
 Form.Checkbox = function MyCustomCheckbox({
     children,
     labelClass = "checkboxLabelBig",
@@ -104,6 +121,7 @@ Form.Checkbox = function MyCustomCheckbox({
     ...props
 }) {
     const [field, meta] = useField(props);
+    console.log(...props)
     return (
         <div className="checkbox-container">
             <label className={`checkbox${size} `}>

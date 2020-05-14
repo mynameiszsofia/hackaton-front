@@ -154,18 +154,23 @@ const Registration2 = () => {
         have a Happee place you must have all these features.{" "}
       </p>
       <div className="features-container">
-        {handleSubmit(data)}
-        <Form.Button
-          to={""}
-          src={HappeePlace}
-          alt={"happee"}
-          variant={sanitized_ ? "feature-clicked" : "feature"}
-          onClickFunc={() => {
-            setSanitized(!sanitized_);
-          }}
+     {/*    {handleSubmit(data)} */}
+        {/* <Form>
+        <Form.Checkbox name="test" >
+          test
+        </Form.Checkbox>
+        </Form> */}
+        <Form>
+        <Form.Button3 name="serv" type="checkbox" label="test" size="Small" labelClass="title-two">
+        Végez könyvelői szolgáltatásokat ügyfelei részére?
+        </Form.Button3>
+        {/* <Form.Button3
+        name="sanitized"
+        value="sanitized"
         >
           Sanitized
-        </Form.Button>
+        </Form.Button3> */}
+        </Form>
         <Form.Button
           to={""}
           src={HandSanitizer}
