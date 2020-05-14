@@ -17,6 +17,7 @@ import Mirror from "../../images/icons/mirror-48.svg";
 import PotableWater from "../../images/icons/potable-water-48.svg";
 import ToiletPaper from "../../images/icons/toilet-paper-48.svg";
 import WaterFountain from "../../images/icons/water-fountain-48.svg";
+import bathroomdata from "../../bathroomdata.json"
 import "./signup.scss";
 import "../../utils/GlobalStyling.scss";
 
@@ -42,13 +43,13 @@ const city = [
   { name: "Zaragoza", value: "Zaragoza" },
 ];
 
-function handleSubmit(data) {
-  /*    const store = JSON.parse(localStorage.getItem('login')).JWTtoken */
-  // event.preventDefault();
+/* function handleSubmit(data) {
+  const store = JSON.parse(localStorage.getItem('login')).JWTtoken 
+  event.preventDefault();
   console.log('data', JSON.stringify(data))
   fetch("/api/bathroom", {
     headers: {
-      /*         "Authorization": `Bearer ${store}`, */
+      /       "Authorization": `Bearer ${store}`, 
       "Content-Type": "application/json",
     },
     method: "POST",
@@ -57,17 +58,28 @@ function handleSubmit(data) {
     .then(resp => resp.json())
     .then(data => {
       console.log('data1', data, 'datastr', JSON.stringify(data));
-      /*         if (data.type === "error") {
+              if (data.type === "error") {
                 setErrors(data.message)
-              } */
+              } 
     })
     .catch(err => {
       console.log(err)
     })
-}
+} */
 
 
 const Registration1 = () => {
+  function handleSubmit(data) {
+    bathroomdata.name = data.name
+    bathroomdata.type = data.type
+    bathroomdata.street = data.street
+    bathroomdata.city = data.city
+    bathroomdata.number = data.number
+    bathroomdata.postalcode = data.postalcode
+    bathroomdata.phone = data.phone
+    console.log(bathroomdata, 'bathdata', data, 'data')
+  }
+
   return (
     <Form onSubmit={(data) => handleSubmit(data)}>
       <div className="bathroom-form-container">
@@ -132,17 +144,30 @@ const Registration1 = () => {
           </div>
         </div>
       </div>
+      <button type="submit">Submit</button>
     </Form>
 
   );
 };
 
 const Registration2 = () => {
-  const [sanitized, setSanitized] = React.useState(false)
-  const [handsanitizer, setHandsanitizer] = React.useState(false)
-  const [babychanger, setBabychanger] = React.useState(false)
-  const [contactless, setContactless] = React.useState(false)
-  const [handicap, setHandicap] = React.useState(false)
+  const [sanitized_, setSanitized] = React.useState(false)
+  const [handsanitizer_, setHandsanitizer] = React.useState(false)
+  const [diaperchanger_, setDiaperchanger] = React.useState(false)
+  const [contactless_, setContactless] = React.useState(false)
+  const [handicap_, setHandicap] = React.useState(false)
+  const data = {sanitized : sanitized_, handsanitizer : handsanitizer_, diaperchanger : diaperchanger_, contactless : contactless_, handicap : handicap_ }
+  console.log("data", data)
+
+  function handleSubmit(data) {
+    bathroomdata.sanitized = data.sanitized
+    bathroomdata.handsanitizer = data.handsanitizer
+    bathroomdata.diaperchanger = data.diaperchanger
+    bathroomdata.contactless = data.contactless
+    bathroomdata.handicap = data.handicap
+    console.log(bathroomdata, 'bathdata', data, 'data')
+  }
+
 
   return (
     <>
@@ -153,38 +178,39 @@ const Registration2 = () => {
           to={""}
           src={HappeePlace}
           alt={"happee"}
-          variant={sanitized ? "feature-clicked" : "feature"}
-          onClickFunc={() => { setSanitized(!sanitized) }}
+          variant={sanitized_ ? "feature-clicked" : "feature"}
+          onClickFunc={() => { setSanitized(!sanitized_) }}
         >Sanitized</Form.Button>
         <Form.Button
           to={""}
           src={HandSanitizer}
           alt={"handsanitizer"}
-          variant={handsanitizer ? "feature-clicked" : "feature"}
-          onClickFunc={() => { setHandsanitizer(!handsanitizer) }}
+          variant={handsanitizer_ ? "feature-clicked" : "feature"}
+          onClickFunc={() => { setHandsanitizer(!handsanitizer_) }}
         >Hand sanitizer</Form.Button>
         <Form.Button
           to={""}
           src={BabyChanger}
           alt={"babychanger"}
-          variant={babychanger ? "feature-clicked" : "feature"}
-          onClickFunc={() => { setBabychanger(!babychanger) }}
+          variant={diaperchanger_ ? "feature-clicked" : "feature"}
+          onClickFunc={() => { setDiaperchanger(!diaperchanger_) }}
         >Baby Changer</Form.Button>
         <Form.Button
           to={""}
           src={Contactless}
           alt={"contactless"}
-          variant={contactless ? "feature-clicked" : "feature"}
-          onClickFunc={() => { setContactless(!contactless) }}
+          variant={contactless_ ? "feature-clicked" : "feature"}
+          onClickFunc={() => { setContactless(!contactless_) }}
         >Contactless</Form.Button>
         <Form.Button
           to={""}
           src={Handicap}
           alt={"handicap"}
-          variant={handicap ? "feature-clicked" : "feature"}
-          onClickFunc={() => { setHandicap(!handicap) }}
+          variant={handicap_ ? "feature-clicked" : "feature"}
+          onClickFunc={() => { setHandicap(!handicap_) }}
         >Handicap</Form.Button>
       </div>
+    <button type="button" onClick={handleSubmit(data)}>Submit</button>
     </>
   );
 };
@@ -198,6 +224,8 @@ const Registration3 = () => {
   const [femaleProducts, setFemaleProducts] = React.useState(false)
   const [toiletPaper, setToiletPaper] = React.useState(false)
   const [free, setFree] = React.useState(false)
+
+  
   return (
     <>
       <h2>Is your bathroom a Happee place?</h2>
@@ -268,6 +296,29 @@ const Registration3 = () => {
   );
 };
 const Registration4 = () => {
+  function handleSubmit(data) {
+    /*const store = JSON.parse(localStorage.getItem('login')).JWTtoken */
+    /*event.preventDefault();*/
+    console.log('data', JSON.stringify(data))
+    fetch("/api/bathroom", {
+      headers: {
+        /*       "Authorization": `Bearer ${store}`, */
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify(data),
+    })
+      .then(resp => resp.json())
+      .then(data => {
+        console.log('data1', data, 'datastr', JSON.stringify(data));
+  /*               if (data.type === "error") {
+                  setErrors(data.message)
+                }  */
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  } 
   return (
     <>
       <p>Thank you for uploading your bathroom!</p>
@@ -276,6 +327,7 @@ const Registration4 = () => {
         The Happee team will contact you as soon as possible to review your
         bathroom. Meanwhile your place will be shown in the map as unreviewed.
       </p>
+      <button type="button" onClick={handleSubmit(bathroomdata)}>Submit</button>
     </>
   );
 };
@@ -284,7 +336,7 @@ class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeId: 2,
+      activeId: 0,
       stepId: 0,
     };
     this.handlePlusTab = this.handlePlusTab.bind(this);
@@ -348,6 +400,7 @@ class SignUp extends Component {
                   to={""}
                   variant="brand-back"
                   onClickFunc={this.handleMinusTab}
+                  
                 >
                   Back
           </Form.Button>
