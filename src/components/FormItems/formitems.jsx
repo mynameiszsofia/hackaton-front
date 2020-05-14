@@ -1,5 +1,5 @@
 import React from "react";
-import { Formik, Form as FormikForm, useField, Field } from "formik";
+import { Formik, Form as FormikForm, useField, Field   } from "formik";
 import NumberFormat from "react-number-format";
 import { Link } from "react-router-dom";
 import "./formitems.scss";
@@ -29,19 +29,19 @@ Form.Dropdown = function MyDropdown({
 }) {
     const [field, meta] = useField(props);
     console.log("dropdown", field);
+
     return (
         <div className="dropdown">
             <label for={selectName} className="formItems-label">{labelValue}
             </label>
-            <select  {...field} {...props} className="dropdown-input" name={selectName} id={idValue}>
-                <option value={placeholder} disabled selected>{placeholder}</option>
-                {data.map((d) => {
+            <Field name="colors" as="select" className="dropdown-input" {...field}>
+            {data.map((d) => {
                     return (
                         <option value={d.value} >{d.value}</option>
                     )
                 })}
+            </Field>
 
-            </select>
         </div>
     )
 }

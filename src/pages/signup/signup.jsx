@@ -333,7 +333,7 @@ const Registration4 = () => {
 
   return (
     <>
-      {handleSubmit(bathroomdata)}
+{/*       {handleSubmit(bathroomdata)} */}
       <h2>Thank you for uploading your bathroom!</h2>
       <div className="title-container-row">
         <img src={Success} alt="success" />
