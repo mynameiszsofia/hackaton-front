@@ -45,7 +45,7 @@ const city = [
 function handleSubmit(data) {
   /*    const store = JSON.parse(localStorage.getItem('login')).JWTtoken */
   // event.preventDefault();
-  console.log('data', JSON.stringify(data))
+  console.log("data", JSON.stringify(data));
   fetch("/api/bathroom", {
     headers: {
       /*         "Authorization": `Bearer ${store}`, */
@@ -54,18 +54,17 @@ function handleSubmit(data) {
     method: "POST",
     body: JSON.stringify(data),
   })
-    .then(resp => resp.json())
-    .then(data => {
-      console.log('data1', data, 'datastr', JSON.stringify(data));
+    .then((resp) => resp.json())
+    .then((data) => {
+      console.log("data1", data, "datastr", JSON.stringify(data));
       /*         if (data.type === "error") {
                 setErrors(data.message)
               } */
     })
-    .catch(err => {
-      console.log(err)
-    })
+    .catch((err) => {
+      console.log(err);
+    });
 }
-
 
 const Registration1 = () => {
   return (
@@ -80,11 +79,16 @@ const Registration1 = () => {
               placeholder="e.g. Starbucks Coffee"
               label="Name of establishment *"
               required
-            >
-            </Form.Input>
+            ></Form.Input>
 
-            <Form.Input name="street" type="text" placeholder="Street" align="right" label="Street *" required>
-            </Form.Input>
+            <Form.Input
+              name="street"
+              type="text"
+              placeholder="Street"
+              align="right"
+              label="Street *"
+              required
+            ></Form.Input>
             <Form.Dropdown
               name="city"
               data={city}
@@ -101,16 +105,16 @@ const Registration1 = () => {
               idValue={"firstDropdown"}
               labelValue={"Type of establishment *"}
             ></Form.Dropdown>
-            <span className="num-postcode-container"><Form.Input
-              isNumber
-              name="number"
-              type="text"
-              placeholder="Number"
-              inputClass="number-input"
-              label="Number *"
-              required
-            >
-            </Form.Input>
+            <span className="num-postcode-container">
+              <Form.Input
+                isNumber
+                name="number"
+                type="text"
+                placeholder="Number"
+                inputClass="number-input"
+                label="Number *"
+                required
+              ></Form.Input>
               <Form.Input
                 isNumber
                 name="postalcode"
@@ -118,8 +122,9 @@ const Registration1 = () => {
                 placeholder="ZIP"
                 inputClass="postal-input"
                 label="Postal Code *"
-                required>
-              </Form.Input></span>
+                required
+              ></Form.Input>
+            </span>
             <Form.Input
               isNumber
               name="phone"
@@ -127,13 +132,11 @@ const Registration1 = () => {
               placeholder="Contact number"
               label="Contact number *"
               required
-            >
-            </Form.Input>
+            ></Form.Input>
           </div>
         </div>
       </div>
     </Form>
-
   );
 };
 
@@ -141,7 +144,10 @@ const Registration2 = () => {
   return (
     <Form>
       <h3>Is your bathroom a Happee place?</h3>
-      <p>Please select the main features of your bathroom. In order to have a Happee place you must have all these features. </p>
+      <p>
+        Please select the main features of your bathroom. In order to have a
+        Happee place you must have all these features.{" "}
+      </p>
       <Form.Button
         children={"Sanitized"}
         to={""}
@@ -185,7 +191,10 @@ const Registration3 = () => {
   return (
     <Form>
       <h3>Is your bathroom a Happee place?</h3>
-      <p>Please select the other amenities in your bathroom. More is always better! </p>
+      <p>
+        Please select the other amenities in your bathroom. More is always
+        better!{" "}
+      </p>
       <Form.Button
         children={"Female Products"}
         to={""}
@@ -242,7 +251,6 @@ const Registration3 = () => {
         alt={"water"}
         variant="feature"
       ></Form.Button>
-
     </Form>
   );
 };
@@ -273,15 +281,25 @@ class SignUp extends Component {
   }
 
   handlePlusTab() {
-    this.setState({ activeId: this.state.activeId + 1, stepId: this.state.stepId + 1 }, function () {
-      console.log(this.state.activeId);
-    });
+    this.setState(
+      { activeId: this.state.activeId + 1, stepId: this.state.stepId + 1 },
+      function () {
+        console.log(this.state.activeId);
+      }
+    );
   }
 
   handleMinusTab() {
-    this.setState({ activeId: this.state.activeId - 1, stepId: this.state.stepId - 1 }, function () {
-      console.log(this.state.activeId);
-    });
+    this.setState(
+      { activeId: this.state.activeId - 1, stepId: this.state.stepId - 1 },
+      function () {
+        console.log(this.state.activeId);
+      }
+    );
+  }
+
+  setToBack() {
+    this.setState({ activeId: 0 });
   }
 
   getTabContent() {
@@ -294,25 +312,22 @@ class SignUp extends Component {
         return <Registration3 />;
       case 3:
         return <Registration4 />;
-      /*default:
-      /*return <p>Nothing here</p>;*/
+      default:
+        return this.setToBack();
     }
   }
-
 
   render() {
     return (
       <>
-        <div className="stepper-container">
-
-        </div>
+        <div className="stepper-container"></div>
         <div className="container">
           <div className="title-container">
             <h1>Share your Happee place</h1>
             <p>
-              Be part of the Happee community and experience the new culture of clean
-              bathrooms
-        </p>
+              Be part of the Happee community and experience the new culture of
+              clean bathrooms
+            </p>
             <img src={mainPicture} alt="Main pic of WC" />
           </div>
           <div className="bathroom-registration-container">
@@ -320,19 +335,23 @@ class SignUp extends Component {
             <div>{this.getTabContent(this.state.activeId)}</div>
             <div className="button-container">
               <Form>
-                <Form.Button to={""} variant="brand-continue" onClickFunc={this.handlePlusTab}>
+                <Form.Button
+                  to={""}
+                  variant="brand-continue"
+                  onClickFunc={this.handlePlusTab}
+                >
                   Continue
-          </Form.Button>
+                </Form.Button>
                 <Form.Button
                   to={""}
                   variant="brand-back"
                   onClickFunc={this.handleMinusTab}
                 >
                   Back
-          </Form.Button>
+                </Form.Button>
                 <Form.Button to={"/mapScreen"} variant="secondary">
                   TO MAP
-          </Form.Button>
+                </Form.Button>
               </Form>
             </div>
           </div>
