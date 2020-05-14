@@ -35,7 +35,6 @@
   margin-top: 5em;
 }
 .brand-continue-button {
-  display: block;
   margin: 0 auto;
   transition: 0.3s;
   font-size: 0.9em;
@@ -56,7 +55,7 @@
   background-color: transparent;
   font-size: 0.9em;
   padding: 0.8em 1.5em;
-  border-radius: 0.6rem;
+  border-radius: 0.4rem;
   background-image: none;
   box-shadow: none;
   font-weight: 700;
@@ -64,10 +63,24 @@
   border-color: $black;
   margin-left: 1em;
   margin-top: 1em;
+  width: 12em;
   cursor: pointer;
 }
 
 .secondary-button {
+  background-color: transparent;
+  font-size: 0.9em;
+  padding: 0.8em 1.5em;
+  border-radius: 0.6rem;
+  background-image: none;
+  box-shadow: none;
+  color: $black;
+  border-color: $black;
+  margin-left: 0.5em;
+  margin-top: 0.5em;
+  cursor: pointer;
+}
+.map-button {
   background-color: transparent;
   font-size: 0.9em;
   padding: 0.8em 1.5em;
@@ -94,7 +107,22 @@
   background-image: none;
   box-shadow: none;
   color: $black;
-  border-color: $black;
+  /*   border-color: $black; */
+  cursor: pointer;
+  margin-left: 1em;
+}
+
+.feature-clicked-button {
+  background-color: transparent;
+  font-size: 0.8em;
+  padding: 0.8em 1.5em;
+  border-radius: 0.6rem;
+  width: 5rem;
+  height: 5rem;
+  background-image: none;
+  box-shadow: none;
+  color: $black;
+  border-color: $hollywoodCerise;
   cursor: pointer;
   margin-left: 1em;
 }

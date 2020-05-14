@@ -98,3 +98,7 @@
 .formItems-label {
     margin-bottom: 0.2em;
 }
+
+button:focus {
+    outline: 0;
+}

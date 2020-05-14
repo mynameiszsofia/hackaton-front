@@ -1,8 +1,11 @@
 .container {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     margin: 5px;
+    width: 80%;
+    left: 10%;
 }
 
 .title-container {
@@ -13,6 +16,7 @@
 .bathroom-registration-container {
     display: flex;
     flex-direction: column;
+    margin-top: -5.3em;
 }
 .bathroom-form-container {
     display: flex;
@@ -22,10 +26,21 @@
 .button-container {
     align-self: flex-end;
 }
-.stepper-container {
-}
+
 .num-postcode-container {
     display: flex;
     flex-direction: row;
     margin-bottom: -0.7em;
+}
+
+.features-container {
+    display: flex;
+    margin-bottom: 0.5em;
+    align-self: center;
+}
+
+.features-main-container {
+    display: flex;
+    flex-direction: column;
+
 }

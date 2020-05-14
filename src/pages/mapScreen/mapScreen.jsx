@@ -26,6 +26,8 @@ import Geocode from "react-geocode";
 import { OpenStreetMapProvider } from "leaflet-geosearch";
 import dataFile from "./data.json";
 
+import "../../utils/GlobalStyling.scss";
+
 /* const fetchData = React.useCallback(() => {
   fetch("/api/bathroom")
     .then((res) => res.json())

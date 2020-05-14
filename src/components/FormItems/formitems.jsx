@@ -24,8 +24,11 @@ Form.Dropdown = function MyDropdown({
     children,
     data = [{ name: "" }, { value: "" }],
     selectName,
-    idValue, labelValue, placeholder
+    idValue, labelValue, placeholder,
+    ...props
 }) {
+    const [field, meta] = useField(props);
+    console.log("dropdown", field);
     return (
         <div className="dropdown">
             <label for={selectName} className="formItems-label">{labelValue}
@@ -51,7 +54,6 @@ Form.Input = function MyCustomTextField({
 }) {
     // TODO: not really clear...
     const [field, meta] = useField(props);
-    /*  console.log("child", field); */
     return (
         <div className='input-component'>
             <label className="formItems-label">
