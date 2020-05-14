@@ -42,32 +42,6 @@ const city = [
   { name: "Bilbao", value: "Bilbao" },
   { name: "Zaragoza", value: "Zaragoza" },
 ];
-
-/* function handleSubmit(data) {
-  const store = JSON.parse(localStorage.getItem('login')).JWTtoken 
-  event.preventDefault();
-  console.log('data', JSON.stringify(data))
-  fetch("/api/bathroom", {
-    headers: {
-      /       "Authorization": `Bearer ${store}`, 
-      "Content-Type": "application/json",
-    },
-    method: "POST",
-    body: JSON.stringify(data),
-  })
-    .then(resp => resp.json())
-    .then(data => {
-      console.log('data1', data, 'datastr', JSON.stringify(data));
-              if (data.type === "error") {
-                setErrors(data.message)
-              } 
-    })
-    .catch(err => {
-      console.log(err)
-    })
-} */
-
-
 const Registration1 = () => {
   function handleSubmit(data) {
     bathroomdata.name = data.name
@@ -313,10 +287,10 @@ const Registration4 = () => {
   function handleSubmit(data) {
     /*const store = JSON.parse(localStorage.getItem('login')).JWTtoken */
     /*event.preventDefault();*/
-    /* console.log('data', JSON.stringify(data)) */
+    /* console.log('data', JSON.stringify(data))*/
     fetch("/api/bathroom", {
       headers: {
-        /*       "Authorization": `Bearer ${store}`, */
+        /*"Authorization": `Bearer ${store}`,*/
         "Content-Type": "application/json",
       },
       method: "POST",
@@ -334,12 +308,14 @@ const Registration4 = () => {
   return (
     <>
       {handleSubmit(bathroomdata)}
-      <p>Thank you for uploading your bathroom!</p>
-      <img src={Success} alt="success" />
-      <p>
-        The Happee team will contact you as soon as possible to review your
-        bathroom. <br /> Meanwhile your place will be shown in the map as unreviewed.
+      <h2>Thank you for uploading your bathroom!</h2>
+      <div className="title-container-row">
+        <img src={Success} alt="success" />
+        <p>
+          The Happee team will contact you as soon as <br /> possible to review your
+        bathroom. Meanwhile your <br /> place will be shown in the map as unreviewed.
       </p>
+      </div>
     </>
   );
 };
@@ -379,8 +355,6 @@ class SignUp extends Component {
         return <Registration3 />;
       case 3:
         return <Registration4 />;
-      /*default:
-      /*return <p>Nothing here</p>;*/
     }
   }
 
@@ -404,22 +378,36 @@ class SignUp extends Component {
             <MyStepper activeStepId={this.state.stepId} />
             <div>{this.getTabContent(this.state.activeId)}</div>
             <div className="button-container">
-              <Form>
-                <Form.Button to={""} variant="brand-continue" onClickFunc={this.handlePlusTab}>
-                  Continue
+              {this.state.activeId < 3 ? (
+                <Form>
+                  <Form.Button to={""} variant="brand-continue" onClickFunc={this.handlePlusTab}>
+                    Continue
           </Form.Button>
-                <Form.Button
-                  to={""}
-                  variant="brand-back"
-                  onClickFunc={this.handleMinusTab}
-
-                >
-                  Back
+                  <Form.Button
+                    to={""}
+                    variant="brand-back"
+                    onClickFunc={this.handleMinusTab}
+                  >
+                    Back
           </Form.Button>
-                <Form.Button to={"/mapScreen"} variant="secondary">
-                  to map
+                  <Form.Button to={"/mapScreen"} variant="secondary">
+                    to map
           </Form.Button>
-              </Form>
+                </Form>
+              ) : (
+                  <Form>
+                    <Form.Button
+                      to={""}
+                      variant="brand-back"
+                      onClickFunc={this.handleMinusTab}
+                    >
+                      Back
+          </Form.Button>
+                    <Form.Button to={"/mapScreen"} variant="secondary">
+                      to map
+          </Form.Button>
+                  </Form>
+                )}
             </div>
           </div>
         </div>
