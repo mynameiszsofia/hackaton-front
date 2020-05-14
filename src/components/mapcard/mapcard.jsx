@@ -13,20 +13,30 @@ import HandSanitizer from "../../images/icons/handSanitizer.svg";
 import dataFile from "../../pages/mapScreen/data.json";
 
 const dropdown = [
-  { name: "coffee", value: "Coffee" },
+  { name: "cafe", value: "Cafe" },
+  { name: "bar", value: "Bar" },
+  { name: "restaurant", value: "Restaurant" },
+  { name: "shoppingmall", value: "Shopping Mall" },
+  { name: "hospital", value: "Hospital" },
+  { name: "hotel", value: "Hotel" },
+  { name: "school", value: "School" },
+  { name: "officeco", value: "Offices, Coworking" },
+  { name: "shoppingmall", value: "Shopping Mall" },
+  { name: "cinema", value: "Cinema" },
   { name: "gas station", value: "Gas station" },
+
 ];
 
 export default function Mapcard() {
   return (
     <>
       <Card>
-        <Card.Title>Filter by type of stablishment</Card.Title>
+        <Card.Title>Filter by type of establishment</Card.Title>
         <Card.Body>
           <Form>
             <Form.Dropdown
               data={dropdown}
-              placeholder="Select type of stablishment"
+              placeholder="Select type of establishment"
               idValue={"firstDropdown"}
             ></Form.Dropdown>
           </Form>

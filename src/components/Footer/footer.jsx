@@ -12,8 +12,8 @@ function Footer() {
     ];
 
     return (
-        <>
-            <p>© 2020 Happee company. All rights reserved</p>
+        <div className="footer-container">
+            <p className="footer-title">© 2020 Happee company. All rights reserved</p>
             <div>
                 {links.map((link, i) => {
                     return (
@@ -24,7 +24,7 @@ function Footer() {
                     );
                 })}
             </div>
-        </>
+        </div>
     );
 }
 

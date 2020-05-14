@@ -11,7 +11,7 @@ export const Form = ({ children, onSubmit }) => {
             <Formik
                 initialValues={{}}
                 onSubmit={(values, actions) => {
-
+                    console.log('test')
                     onSubmit(values);
                 }}
             >
@@ -33,11 +33,11 @@ Form.Dropdown = function MyDropdown({
         <div className="dropdown">
             <label for={selectName} className="formItems-label">{labelValue}
             </label>
-            <select className="dropdown-input" name={selectName} id={idValue}>
+            <select  {...field} {...props} className="dropdown-input" name={selectName} id={idValue}>
                 <option value={placeholder} disabled selected>{placeholder}</option>
                 {data.map((d) => {
                     return (
-                        <option value={d.value}>{d.value}</option>
+                        <option value={d.value} >{d.value}</option>
                     )
                 })}
 

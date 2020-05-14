@@ -1,7 +1,10 @@
 [
   {
     "key": "marker1",
-    "position": [40.439, -3.705],
+    "position": [
+      40.439,
+      -3.705
+    ],
     "content": "My first popup",
     "verified": true,
     "happeeStatus": "happeePlace",
@@ -23,14 +26,17 @@
   },
   {
     "key": "marker2",
-    "position": [40.42, -3.72379],
+    "position": [
+      40.42,
+      -3.72379
+    ],
     "content": "My second popup",
     "verified": false,
     "happeeStatus": "unknownPlace",
     "picture": "https://i.imgur.com/8yaYEcH.jpg",
-    "name": "Betérő",
+    "name": "La Fugitiva",
     "walkingTime": 4,
-    "address": "Csillag köz, 18, Hörcsögröcsöge",
+    "address": "Calle Santa Isabel 5, Madrid",
     "openingTime": 5,
     "closingTime": 17,
     "details": [
@@ -45,14 +51,17 @@
   },
   {
     "key": "marker3",
-    "position": [40.41, -3.685],
+    "position": [
+      40.41,
+      -3.685
+    ],
     "content": "My third popup",
     "verified": false,
     "happeeStatus": "unknownPlace",
     "picture": "https://i.imgur.com/weRSFsq.jpg",
-    "name": "Sarok",
+    "name": "The Hat",
     "walkingTime": 20,
-    "address": "Rutyutu köz, 666, Karakószörcsög",
+    "address": "Calle Imperial 9, Madrid",
     "openingTime": 11,
     "closingTime": 23,
     "details": [
@@ -67,14 +76,17 @@
   },
   {
     "key": "marker4",
-    "position": [40.39, -3.635],
+    "position": [
+      40.39,
+      -3.635
+    ],
     "content": "My fourth popup",
     "verified": true,
     "happeeStatus": "okPlace",
     "picture": "https://i.imgur.com/Fz5h6x2.jpg",
-    "name": "Csücsök",
+    "name": "Cabreira Restaurante",
     "walkingTime": 18,
-    "address": "Lóhere köz, 18, Bubóka",
+    "address": "Calle Ruiz 5, Madrid",
     "openingTime": 7,
     "closingTime": 19,
     "details": [
@@ -89,14 +101,17 @@
   },
   {
     "key": "marker5",
-    "position": [40.49, -3.693],
+    "position": [
+      40.49,
+      -3.693
+    ],
     "content": "My third popup",
     "verified": true,
     "happeeStatus": "happeePlace",
     "picture": "https://i.imgur.com/zhvMZVn.jpg",
-    "name": "Apple Place",
+    "name": "Cine Capitol",
     "walkingTime": 40,
-    "address": "Alma street 31",
+    "address": "Gran Via 41, Madrid",
     "openingTime": 12,
     "closingTime": 24,
     "details": [
@@ -111,14 +126,17 @@
   },
   {
     "key": "marker6",
-    "position": [40.5, -3.694],
+    "position": [
+      40.5,
+      -3.694
+    ],
     "content": "My third popup",
     "verified": false,
     "happeeStatus": "okPlace",
     "picture": "https://i.imgur.com/2HbHU5y.jpg",
-    "name": "Nothing place",
+    "name": "New York University",
     "walkingTime": 40,
-    "address": "Nothing street 31",
+    "address": "Calle del Barquillo 6, Madrid",
     "openingTime": 3,
     "closingTime": 12,
     "details": [
@@ -133,14 +151,17 @@
   },
   {
     "key": "marker7",
-    "position": [40.44, -3.666],
+    "position": [
+      40.44,
+      -3.666
+    ],
     "content": "My seventh popup",
     "verified": true,
     "happeeStatus": "happeePlace",
     "picture": "https://i.imgur.com/lYIyGXL.jpg",
-    "name": "Kiscsillag",
+    "name": "Casa Mingo",
     "walkingTime": 10,
-    "address": "Kiscsillag tér, 18, Győr",
+    "address": "Paseo de la Florida 19, Madrid",
     "openingTime": 14,
     "closingTime": 24,
     "details": [

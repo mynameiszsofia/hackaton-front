@@ -50,7 +50,7 @@ function Header() {
 					);
 				})}
 				<div>Search bar</div>
-				<Avatar alt="avatar icon" src="https://cdn.iconscout.com/icon/free/png-256/avatar-373-456325.png" className={classes.avatar} />
+				<div className="avatar-icon"><Avatar alt="avatar icon" src="https://cdn.iconscout.com/icon/free/png-256/avatar-373-456325.png" className={classes.avatar} /></div>
 				{/* <Button to={"/newBathroom"} variant="brand">+Upload bathroom</Button> */}
 
 			</div>

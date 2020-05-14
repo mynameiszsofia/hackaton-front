@@ -144,7 +144,7 @@ const Registration1 = () => {
           </div>
         </div>
       </div>
-      <button type="submit">Submit</button>
+      <button className="submit-button" type="submit">Submit</button>
     </Form>
 
   );
@@ -156,7 +156,7 @@ const Registration2 = () => {
   const [diaperchanger_, setDiaperchanger] = React.useState(false)
   const [contactless_, setContactless] = React.useState(false)
   const [handicap_, setHandicap] = React.useState(false)
-  const data = {sanitized : sanitized_, handsanitizer : handsanitizer_, diaperchanger : diaperchanger_, contactless : contactless_, handicap : handicap_ }
+  const data = { sanitized: sanitized_, handsanitizer: handsanitizer_, diaperchanger: diaperchanger_, contactless: contactless_, handicap: handicap_ }
   console.log("data", data)
 
   function handleSubmit(data) {
@@ -174,6 +174,7 @@ const Registration2 = () => {
       <h2>Is your bathroom a Happee place?</h2>
       <p>Please select the main features of your bathroom. In order <br /> to have a Happee place you must have all these features. </p>
       <div className="features-container">
+        {handleSubmit(data)}
         <Form.Button
           to={""}
           src={HappeePlace}
@@ -210,88 +211,101 @@ const Registration2 = () => {
           onClickFunc={() => { setHandicap(!handicap_) }}
         >Handicap</Form.Button>
       </div>
-    <button type="button" onClick={handleSubmit(data)}>Submit</button>
     </>
   );
 };
 
 const Registration3 = () => {
-  const [mirror, setMirror] = React.useState(false)
-  const [handDryer, setHandDryer] = React.useState(false)
-  const [hairDryer, setHairDryer] = React.useState(false)
-  const [potableWater, setPotableWater] = React.useState(false)
-  const [waterFountain, setWaterFountain] = React.useState(false)
-  const [femaleProducts, setFemaleProducts] = React.useState(false)
-  const [toiletPaper, setToiletPaper] = React.useState(false)
-  const [free, setFree] = React.useState(false)
+  const [mirror_, setMirror] = React.useState(false)
+  const [handDryer_, setHandDryer] = React.useState(false)
+  const [hairDryer_, setHairDryer] = React.useState(false)
+  const [potableWater_, setPotableWater] = React.useState(false)
+  const [waterFountain_, setWaterFountain] = React.useState(false)
+  const [femaleProducts_, setFemaleProducts] = React.useState(false)
+  const [toiletPaper_, setToiletPaper] = React.useState(false)
+  const [free_, setFree] = React.useState(false)
 
-  
+  const data_bool = { mirror: mirror_, handdryer: handDryer_, hairdryer: hairDryer_, potablewater: potableWater_, waterfountain: waterFountain_, femaleproducts: femaleProducts_, toiletpaper: toiletPaper_, free: free_ }
+
+  function handleData(data_bool) {
+    bathroomdata.mirror = data_bool.mirror
+    bathroomdata.handdryer = data_bool.handdryer
+    bathroomdata.hairdryer = data_bool.hairdryer
+    bathroomdata.potablewater = data_bool.potablewater
+    bathroomdata.femaleproducts = data_bool.femaleproducts
+    bathroomdata.toiletpaper = data_bool.toiletpaper
+    bathroomdata.free = data_bool.free
+    console.log(bathroomdata, 'bathdata')
+  }
+
+
   return (
     <>
       <h2>Is your bathroom a Happee place?</h2>
       <p>Please select the other amenities in your bathroom. More is always better! </p>
-    {/*   <div className="features-main-container"> */}
-        <div className="features-container">
-          <Form.Button
-            to={""}
-            src={Mirror}
-            alt={"mirror"}
-            variant={mirror ? "feature-clicked" : "feature"}
-            onClickFunc={() => { setMirror(!mirror) }}
-          >Mirror</Form.Button>
-          <Form.Button
-            to={""}
-            src={HandDryer}
-            alt={"handdryer"}
-            variant={handDryer ? "feature-clicked" : "feature"}
-            onClickFunc={() => { setHandDryer(!handDryer) }}
-          >Hand Dryer</Form.Button>
-          <Form.Button
-            to={""}
-            src={HairDryer}
-            alt={"hairdryer"}
-            variant={hairDryer ? "feature-clicked" : "feature"}
-            onClickFunc={() => { setHairDryer(!hairDryer) }}
-          >Hair Dryer</Form.Button>
-          <Form.Button
-            to={""}
-            src={PotableWater}
-            alt={"water"}
-            variant={potableWater ? "feature-clicked" : "feature"}
-            onClickFunc={() => { setPotableWater(!potableWater) }}
-          >Potable Water</Form.Button>
- {/*        </div>
+      {/*   <div className="features-main-container"> */}
+      <div className="features-container">
+        {handleData(data_bool)}
+        <Form.Button
+          to={""}
+          src={Mirror}
+          alt={"mirror"}
+          variant={mirror_ ? "feature-clicked" : "feature"}
+          onClickFunc={() => { setMirror(!mirror_) }}
+        >Mirror</Form.Button>
+        <Form.Button
+          to={""}
+          src={HandDryer}
+          alt={"handdryer"}
+          variant={handDryer_ ? "feature-clicked" : "feature"}
+          onClickFunc={() => { setHandDryer(!handDryer_) }}
+        >Hand Dryer</Form.Button>
+        <Form.Button
+          to={""}
+          src={HairDryer}
+          alt={"hairdryer"}
+          variant={hairDryer_ ? "feature-clicked" : "feature"}
+          onClickFunc={() => { setHairDryer(!hairDryer_) }}
+        >Hair Dryer</Form.Button>
+        <Form.Button
+          to={""}
+          src={PotableWater}
+          alt={"water"}
+          variant={potableWater_ ? "feature-clicked" : "feature"}
+          onClickFunc={() => { setPotableWater(!potableWater_) }}
+        >Potable Water</Form.Button>
+        {/*        </div>
         <div className="features-container"> */}
-          <Form.Button
-            to={""}
-            src={WaterFountain}
-            alt={"water"}
-            variant={waterFountain ? "feature-clicked" : "feature"}
-            onClickFunc={() => { setWaterFountain(!waterFountain) }}
-          >Water Fountain</Form.Button>
-          <Form.Button
-            to={""}
-            src={FemaleProducts}
-            alt={"femaleproducts"}
-            variant={femaleProducts ? "feature-clicked" : "feature"}
-            onClickFunc={() => { setFemaleProducts(!femaleProducts) }}
-          >Female Products</Form.Button>
-          <Form.Button
-            to={""}
-            src={ToiletPaper}
-            alt={"toiletpaper"}
-            variant={toiletPaper ? "feature-clicked" : "feature"}
-            onClickFunc={() => { setToiletPaper(!toiletPaper) }}
-          >Toilet Paper</Form.Button>
-          <Form.Button
-            to={""}
-            src={Free}
-            alt={"free"}
-            variant={free ? "feature-clicked" : "feature"}
-            onClickFunc={() => { setFree(!free) }}
-          >Free</Form.Button>
-        </div>
-   {/*    </div> */}
+        <Form.Button
+          to={""}
+          src={WaterFountain}
+          alt={"water"}
+          variant={waterFountain_ ? "feature-clicked" : "feature"}
+          onClickFunc={() => { setWaterFountain(!waterFountain_) }}
+        >Water Fountain</Form.Button>
+        <Form.Button
+          to={""}
+          src={FemaleProducts}
+          alt={"femaleproducts"}
+          variant={femaleProducts_ ? "feature-clicked" : "feature"}
+          onClickFunc={() => { setFemaleProducts(!femaleProducts_) }}
+        >Female Products</Form.Button>
+        <Form.Button
+          to={""}
+          src={ToiletPaper}
+          alt={"toiletpaper"}
+          variant={toiletPaper_ ? "feature-clicked" : "feature"}
+          onClickFunc={() => { setToiletPaper(!toiletPaper_) }}
+        >Toilet Paper</Form.Button>
+        <Form.Button
+          to={""}
+          src={Free}
+          alt={"free"}
+          variant={free_ ? "feature-clicked" : "feature"}
+          onClickFunc={() => { setFree(!free_) }}
+        >Free</Form.Button>
+      </div>
+      {/*    </div> */}
     </>
   );
 };
@@ -299,7 +313,7 @@ const Registration4 = () => {
   function handleSubmit(data) {
     /*const store = JSON.parse(localStorage.getItem('login')).JWTtoken */
     /*event.preventDefault();*/
-    console.log('data', JSON.stringify(data))
+    /* console.log('data', JSON.stringify(data)) */
     fetch("/api/bathroom", {
       headers: {
         /*       "Authorization": `Bearer ${store}`, */
@@ -311,23 +325,21 @@ const Registration4 = () => {
       .then(resp => resp.json())
       .then(data => {
         console.log('data1', data, 'datastr', JSON.stringify(data));
-  /*               if (data.type === "error") {
-                  setErrors(data.message)
-                }  */
       })
       .catch(err => {
         console.log(err)
       })
-  } 
+  }
+
   return (
     <>
+      {handleSubmit(bathroomdata)}
       <p>Thank you for uploading your bathroom!</p>
       <img src={Success} alt="success" />
       <p>
         The Happee team will contact you as soon as possible to review your
-        bathroom. Meanwhile your place will be shown in the map as unreviewed.
+        bathroom. <br /> Meanwhile your place will be shown in the map as unreviewed.
       </p>
-      <button type="button" onClick={handleSubmit(bathroomdata)}>Submit</button>
     </>
   );
 };
@@ -400,9 +412,12 @@ class SignUp extends Component {
                   to={""}
                   variant="brand-back"
                   onClickFunc={this.handleMinusTab}
-                  
+
                 >
                   Back
+          </Form.Button>
+                <Form.Button to={"/mapScreen"} variant="secondary">
+                  to map
           </Form.Button>
               </Form>
             </div>

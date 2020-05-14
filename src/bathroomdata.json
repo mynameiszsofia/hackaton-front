@@ -1,14 +1,22 @@
-{   "name": "",
+{
+    "name": "",
     "type": "",
     "street": "",
-    "number":"",
-    "postalcode":"",
+    "number": "",
+    "postalcode": "",
     "city": "",
     "phone": "",
     "sanitized": "",
     "diaperchanger": "",
     "contactless": "",
     "handsanitizer": "",
-    "handicap": ""
+    "handicap": "",
+    "mirror": "",
+    "handdryer": "",
+    "hairdryer": "",
+    "potablewater": "",
+    "waterfountain": "",
+    "femaleproducts": "",
+    "toiletpaper": "",
+    "free": ""
 }
-    

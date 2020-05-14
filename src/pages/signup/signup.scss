@@ -1,3 +1,5 @@
+@import "../../utils/variables.scss";
+
 .container {
     position: relative;
     display: flex;
@@ -6,6 +8,22 @@
     margin: 5px;
     width: 80%;
     left: 10%;
+}
+.submit-button {
+    margin-left: 1em;
+    transition: 0.3s;
+    font-size: 0.9em;
+    padding: 0.8em 1.5em;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 0.4rem;
+    font-weight: 700;
+    background-color: $cerulean;
+    border-color: $cerulean;
+    color: white;
+    cursor: pointer;
+    width: 10em;
+
 }
 
 .title-container {
@@ -42,5 +60,4 @@
 .features-main-container {
     display: flex;
     flex-direction: column;
-
 }
