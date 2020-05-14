@@ -330,7 +330,6 @@ class SignUp extends Component {
     this.handlePlusTab = this.handlePlusTab.bind(this);
     this.handleMinusTab = this.handleMinusTab.bind(this);
     this.getTabContent = this.getTabContent.bind(this);
-    /*   this.handleSubmit = this.handleSubmit.bind(this) */
   }
 
   handlePlusTab() {
