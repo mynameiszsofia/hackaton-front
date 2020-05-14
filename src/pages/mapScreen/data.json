@@ -1,0 +1,156 @@
+[
+  {
+    "key": "marker1",
+    "position": [40.439, -3.705],
+    "content": "My first popup",
+    "verified": true,
+    "happeeStatus": "happeePlace",
+    "picture": "https://i.imgur.com/4YdgbVL.jpg",
+    "name": "Cafelito",
+    "walkingTime": 2,
+    "address": "Calle Sombrerete, 20, Madrid",
+    "openingTime": 8,
+    "closingTime": 20,
+    "details": [
+      {
+        "sanitized": true,
+        "diaperchanger": true,
+        "contactless": true,
+        "handsanitizer": true,
+        "handicap": true
+      }
+    ]
+  },
+  {
+    "key": "marker2",
+    "position": [40.42, -3.72379],
+    "content": "My second popup",
+    "verified": false,
+    "happeeStatus": "unknownPlace",
+    "picture": "https://i.imgur.com/8yaYEcH.jpg",
+    "name": "Betérő",
+    "walkingTime": 4,
+    "address": "Csillag köz, 18, Hörcsögröcsöge",
+    "openingTime": 5,
+    "closingTime": 17,
+    "details": [
+      {
+        "sanitized": false,
+        "diaperchanger": false,
+        "contactless": false,
+        "handsanitizer": false,
+        "handicap": false
+      }
+    ]
+  },
+  {
+    "key": "marker3",
+    "position": [40.41, -3.685],
+    "content": "My third popup",
+    "verified": false,
+    "happeeStatus": "unknownPlace",
+    "picture": "https://i.imgur.com/weRSFsq.jpg",
+    "name": "Sarok",
+    "walkingTime": 20,
+    "address": "Rutyutu köz, 666, Karakószörcsög",
+    "openingTime": 11,
+    "closingTime": 23,
+    "details": [
+      {
+        "sanitized": true,
+        "diaperchanger": false,
+        "contactless": true,
+        "handsanitizer": false,
+        "handicap": false
+      }
+    ]
+  },
+  {
+    "key": "marker4",
+    "position": [40.39, -3.635],
+    "content": "My fourth popup",
+    "verified": true,
+    "happeeStatus": "okPlace",
+    "picture": "https://i.imgur.com/Fz5h6x2.jpg",
+    "name": "Csücsök",
+    "walkingTime": 18,
+    "address": "Lóhere köz, 18, Bubóka",
+    "openingTime": 7,
+    "closingTime": 19,
+    "details": [
+      {
+        "sanitized": true,
+        "diaperchanger": true,
+        "contactless": false,
+        "handsanitizer": false,
+        "handicap": false
+      }
+    ]
+  },
+  {
+    "key": "marker5",
+    "position": [40.49, -3.693],
+    "content": "My third popup",
+    "verified": true,
+    "happeeStatus": "happeePlace",
+    "picture": "https://i.imgur.com/zhvMZVn.jpg",
+    "name": "Apple Place",
+    "walkingTime": 40,
+    "address": "Alma street 31",
+    "openingTime": 12,
+    "closingTime": 24,
+    "details": [
+      {
+        "sanitized": true,
+        "diaperchanger": true,
+        "contactless": true,
+        "handsanitizer": true,
+        "handicap": true
+      }
+    ]
+  },
+  {
+    "key": "marker6",
+    "position": [40.5, -3.694],
+    "content": "My third popup",
+    "verified": false,
+    "happeeStatus": "okPlace",
+    "picture": "https://i.imgur.com/2HbHU5y.jpg",
+    "name": "Nothing place",
+    "walkingTime": 40,
+    "address": "Nothing street 31",
+    "openingTime": 3,
+    "closingTime": 12,
+    "details": [
+      {
+        "sanitized": false,
+        "diaperchanger": false,
+        "contactless": true,
+        "handsanitizer": true,
+        "handicap": false
+      }
+    ]
+  },
+  {
+    "key": "marker7",
+    "position": [40.44, -3.666],
+    "content": "My seventh popup",
+    "verified": true,
+    "happeeStatus": "happeePlace",
+    "picture": "https://i.imgur.com/lYIyGXL.jpg",
+    "name": "Kiscsillag",
+    "walkingTime": 10,
+    "address": "Kiscsillag tér, 18, Győr",
+    "openingTime": 14,
+    "closingTime": 24,
+    "details": [
+      {
+        "sanitized": true,
+        "diaperchanger": true,
+        "contactless": true,
+        "handsanitizer": true,
+        "handicap": true
+      }
+    ]
+  }
+]
