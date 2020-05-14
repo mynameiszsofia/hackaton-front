@@ -123,19 +123,27 @@ const Registration1 = () => {
           </div>
         </div>
       </div>
-      <button className="submit-button" type="submit">Submit</button>
+      <button className="submit-button" type="submit">
+        Submit
+      </button>
     </Form>
   );
 };
 
 const Registration2 = () => {
-  const [sanitized_, setSanitized] = React.useState(false)
-  const [handsanitizer_, setHandsanitizer] = React.useState(false)
-  const [diaperchanger_, setDiaperchanger] = React.useState(false)
-  const [contactless_, setContactless] = React.useState(false)
-  const [handicap_, setHandicap] = React.useState(false)
-  const data = { sanitized: sanitized_, handsanitizer: handsanitizer_, diaperchanger: diaperchanger_, contactless: contactless_, handicap: handicap_ }
-  console.log("data", data)
+  const [sanitized_, setSanitized] = React.useState(false);
+  const [handsanitizer_, setHandsanitizer] = React.useState(false);
+  const [diaperchanger_, setDiaperchanger] = React.useState(false);
+  const [contactless_, setContactless] = React.useState(false);
+  const [handicap_, setHandicap] = React.useState(false);
+  const data = {
+    sanitized: sanitized_,
+    handsanitizer: handsanitizer_,
+    diaperchanger: diaperchanger_,
+    contactless: contactless_,
+    handicap: handicap_,
+  };
+  console.log("data", data);
 
   function handleSubmit(data) {
     bathroomdata.sanitized = data.sanitized;
@@ -154,100 +162,83 @@ const Registration2 = () => {
         have a Happee place you must have all these features.{" "}
       </p>
       <div className="features-container">
-     {/*    {handleSubmit(data)} */}
-        {/* <Form>
-        <Form.Checkbox name="test" >
-          test
-        </Form.Checkbox>
-        </Form> */}
         <Form>
-        <Form.Button3 name="serv" type="checkbox" label="test" size="Small" labelClass="title-two">
-        Végez könyvelői szolgáltatásokat ügyfelei részére?
-        </Form.Button3>
-        {/* <Form.Button3
-        name="sanitized"
-        value="sanitized"
-        >
-          Sanitized
-        </Form.Button3> */}
+          <Form.ButtonForm name="Sanitized" icon={HappeePlace} alt="sanitized">
+            Sanatized
+          </Form.ButtonForm>
+          <Form.ButtonForm
+            name="HandSanitizer"
+            icon={HandSanitizer}
+            alt="Hand sanitizer button"
+          >
+            Hand sanitizer
+          </Form.ButtonForm>
+          <Form.ButtonForm
+            name="babyChanger"
+            icon={BabyChanger}
+            alt="Baby Changer button"
+          >
+            Baby Changer
+          </Form.ButtonForm>
+          <Form.ButtonForm
+            name="contactless"
+            icon={Contactless}
+            alt="Contactless button"
+          >
+            Contactless
+          </Form.ButtonForm>
+          <Form.ButtonForm
+            name="handicap"
+            icon={Handicap}
+            alt="handicap button"
+          >
+            Contactless
+          </Form.ButtonForm>
         </Form>
-        <Form.Button
-          to={""}
-          src={HandSanitizer}
-          alt={"handsanitizer"}
-          variant={handsanitizer_ ? "feature-clicked" : "feature"}
-          onClickFunc={() => {
-            setHandsanitizer(!handsanitizer_);
-          }}
-        >
-          Hand sanitizer
-        </Form.Button>
-        <Form.Button
-          to={""}
-          src={BabyChanger}
-          alt={"babychanger"}
-          variant={diaperchanger_ ? "feature-clicked" : "feature"}
-          onClickFunc={() => {
-            setDiaperchanger(!diaperchanger_);
-          }}
-        >
-          Baby Changer
-        </Form.Button>
-        <Form.Button
-          to={""}
-          src={Contactless}
-          alt={"contactless"}
-          variant={contactless_ ? "feature-clicked" : "feature"}
-          onClickFunc={() => {
-            setContactless(!contactless_);
-          }}
-        >
-          Contactless
-        </Form.Button>
-        <Form.Button
-          to={""}
-          src={Handicap}
-          alt={"handicap"}
-          variant={handicap_ ? "feature-clicked" : "feature"}
-          onClickFunc={() => {
-            setHandicap(!handicap_);
-          }}
-        >
-          Handicap
-        </Form.Button>
       </div>
     </>
   );
 };
 
 const Registration3 = () => {
-  const [mirror_, setMirror] = React.useState(false)
-  const [handDryer_, setHandDryer] = React.useState(false)
-  const [hairDryer_, setHairDryer] = React.useState(false)
-  const [potableWater_, setPotableWater] = React.useState(false)
-  const [waterFountain_, setWaterFountain] = React.useState(false)
-  const [femaleProducts_, setFemaleProducts] = React.useState(false)
-  const [toiletPaper_, setToiletPaper] = React.useState(false)
-  const [free_, setFree] = React.useState(false)
+  const [mirror_, setMirror] = React.useState(false);
+  const [handDryer_, setHandDryer] = React.useState(false);
+  const [hairDryer_, setHairDryer] = React.useState(false);
+  const [potableWater_, setPotableWater] = React.useState(false);
+  const [waterFountain_, setWaterFountain] = React.useState(false);
+  const [femaleProducts_, setFemaleProducts] = React.useState(false);
+  const [toiletPaper_, setToiletPaper] = React.useState(false);
+  const [free_, setFree] = React.useState(false);
 
-  const data_bool = { mirror: mirror_, handdryer: handDryer_, hairdryer: hairDryer_, potablewater: potableWater_, waterfountain: waterFountain_, femaleproducts: femaleProducts_, toiletpaper: toiletPaper_, free: free_ }
+  const data_bool = {
+    mirror: mirror_,
+    handdryer: handDryer_,
+    hairdryer: hairDryer_,
+    potablewater: potableWater_,
+    waterfountain: waterFountain_,
+    femaleproducts: femaleProducts_,
+    toiletpaper: toiletPaper_,
+    free: free_,
+  };
 
   function handleData(data_bool) {
-    bathroomdata.mirror = data_bool.mirror
-    bathroomdata.handdryer = data_bool.handdryer
-    bathroomdata.hairdryer = data_bool.hairdryer
-    bathroomdata.potablewater = data_bool.potablewater
-    bathroomdata.femaleproducts = data_bool.femaleproducts
-    bathroomdata.toiletpaper = data_bool.toiletpaper
-    bathroomdata.free = data_bool.free
-    console.log(bathroomdata, 'bathdata')
+    bathroomdata.mirror = data_bool.mirror;
+    bathroomdata.handdryer = data_bool.handdryer;
+    bathroomdata.hairdryer = data_bool.hairdryer;
+    bathroomdata.potablewater = data_bool.potablewater;
+    bathroomdata.femaleproducts = data_bool.femaleproducts;
+    bathroomdata.toiletpaper = data_bool.toiletpaper;
+    bathroomdata.free = data_bool.free;
+    console.log(bathroomdata, "bathdata");
   }
-
 
   return (
     <>
       <h2>Is your bathroom a Happee place?</h2>
-      <p>Please select the other amenities in your bathroom. More is always better! </p>
+      <p>
+        Please select the other amenities in your bathroom. More is always
+        better!{" "}
+      </p>
       {/*   <div className="features-main-container"> */}
       <div className="features-container">
         {handleData(data_bool)}
@@ -256,29 +247,45 @@ const Registration3 = () => {
           src={Mirror}
           alt={"mirror"}
           variant={mirror_ ? "feature-clicked" : "feature"}
-          onClickFunc={() => { setMirror(!mirror_) }}
-        >Mirror</Form.Button>
+          onClickFunc={() => {
+            setMirror(!mirror_);
+          }}
+        >
+          Mirror
+        </Form.Button>
         <Form.Button
           to={""}
           src={HandDryer}
           alt={"handdryer"}
           variant={handDryer_ ? "feature-clicked" : "feature"}
-          onClickFunc={() => { setHandDryer(!handDryer_) }}
-        >Hand Dryer</Form.Button>
+          onClickFunc={() => {
+            setHandDryer(!handDryer_);
+          }}
+        >
+          Hand Dryer
+        </Form.Button>
         <Form.Button
           to={""}
           src={HairDryer}
           alt={"hairdryer"}
           variant={hairDryer_ ? "feature-clicked" : "feature"}
-          onClickFunc={() => { setHairDryer(!hairDryer_) }}
-        >Hair Dryer</Form.Button>
+          onClickFunc={() => {
+            setHairDryer(!hairDryer_);
+          }}
+        >
+          Hair Dryer
+        </Form.Button>
         <Form.Button
           to={""}
           src={PotableWater}
           alt={"water"}
           variant={potableWater_ ? "feature-clicked" : "feature"}
-          onClickFunc={() => { setPotableWater(!potableWater_) }}
-        >Potable Water</Form.Button>
+          onClickFunc={() => {
+            setPotableWater(!potableWater_);
+          }}
+        >
+          Potable Water
+        </Form.Button>
         {/*        </div>
         <div className="features-container"> */}
         <Form.Button
@@ -286,29 +293,45 @@ const Registration3 = () => {
           src={WaterFountain}
           alt={"water"}
           variant={waterFountain_ ? "feature-clicked" : "feature"}
-          onClickFunc={() => { setWaterFountain(!waterFountain_) }}
-        >Water Fountain</Form.Button>
+          onClickFunc={() => {
+            setWaterFountain(!waterFountain_);
+          }}
+        >
+          Water Fountain
+        </Form.Button>
         <Form.Button
           to={""}
           src={FemaleProducts}
           alt={"femaleproducts"}
           variant={femaleProducts_ ? "feature-clicked" : "feature"}
-          onClickFunc={() => { setFemaleProducts(!femaleProducts_) }}
-        >Female Products</Form.Button>
+          onClickFunc={() => {
+            setFemaleProducts(!femaleProducts_);
+          }}
+        >
+          Female Products
+        </Form.Button>
         <Form.Button
           to={""}
           src={ToiletPaper}
           alt={"toiletpaper"}
           variant={toiletPaper_ ? "feature-clicked" : "feature"}
-          onClickFunc={() => { setToiletPaper(!toiletPaper_) }}
-        >Toilet Paper</Form.Button>
+          onClickFunc={() => {
+            setToiletPaper(!toiletPaper_);
+          }}
+        >
+          Toilet Paper
+        </Form.Button>
         <Form.Button
           to={""}
           src={Free}
           alt={"free"}
           variant={free_ ? "feature-clicked" : "feature"}
-          onClickFunc={() => { setFree(!free_) }}
-        >Free</Form.Button>
+          onClickFunc={() => {
+            setFree(!free_);
+          }}
+        >
+          Free
+        </Form.Button>
       </div>
       {/*    </div> */}
     </>
@@ -327,13 +350,13 @@ const Registration4 = () => {
       method: "POST",
       body: JSON.stringify(data),
     })
-      .then(resp => resp.json())
-      .then(data => {
-        console.log('data1', data, 'datastr', JSON.stringify(data));
+      .then((resp) => resp.json())
+      .then((data) => {
+        console.log("data1", data, "datastr", JSON.stringify(data));
       })
-      .catch(err => {
-        console.log(err)
-      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   return (
@@ -343,9 +366,10 @@ const Registration4 = () => {
       <div className="title-container-row">
         <img src={Success} alt="success" />
         <p>
-          The Happee team will contact you as soon as <br /> possible to review your
-        bathroom. Meanwhile your <br /> place will be shown in the map as unreviewed.
-      </p>
+          The Happee team will contact you as soon as <br /> possible to review
+          your bathroom. Meanwhile your <br /> place will be shown in the map as
+          unreviewed.
+        </p>
       </div>
     </>
   );
@@ -419,34 +443,38 @@ class SignUp extends Component {
             <div className="button-container">
               {this.state.activeId < 3 ? (
                 <Form>
-                  <Form.Button to={""} variant="brand-continue" onClickFunc={this.handlePlusTab}>
+                  <Form.Button
+                    to={""}
+                    variant="brand-continue"
+                    onClickFunc={this.handlePlusTab}
+                  >
                     Continue
-          </Form.Button>
+                  </Form.Button>
                   <Form.Button
                     to={""}
                     variant="brand-back"
                     onClickFunc={this.handleMinusTab}
                   >
                     Back
-          </Form.Button>
+                  </Form.Button>
                   <Form.Button to={"/mapScreen"} variant="secondary">
                     to map
-          </Form.Button>
+                  </Form.Button>
                 </Form>
               ) : (
-                  <Form>
-                    <Form.Button
-                      to={""}
-                      variant="brand-back"
-                      onClickFunc={this.handleMinusTab}
-                    >
-                      Back
-          </Form.Button>
-                    <Form.Button to={"/mapScreen"} variant="secondary">
-                      to map
-          </Form.Button>
-                  </Form>
-                )}
+                <Form>
+                  <Form.Button
+                    to={""}
+                    variant="brand-back"
+                    onClickFunc={this.handleMinusTab}
+                  >
+                    Back
+                  </Form.Button>
+                  <Form.Button to={"/mapScreen"} variant="secondary">
+                    to map
+                  </Form.Button>
+                </Form>
+              )}
             </div>
           </div>
         </div>
